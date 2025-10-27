@@ -1,12 +1,12 @@
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Drawing.Printing; 
+// using System;
+// using System.Drawing;
+// using System.Drawing.Imaging;
+// using System.IO;
+// using System.Drawing.Printing;
 using Telerik.Reporting;
 using Telerik.Reporting.Drawing;
 using Telerik.Reporting.Processing;
-using Telerik.Reporting.Barcodes;
+//using Telerik.Reporting.Barcodes;
 
 namespace DPL_project.DemoCertificate
 {
@@ -18,7 +18,7 @@ namespace DPL_project.DemoCertificate
         /// <summary>
         /// Generates a pure square QR code PNG and saves to file
         /// </summary>
-        public static string GenerateQrFilePath(string url, string outputDir, int sizePx )
+        public static string GenerateQrFilePath(string url, string outputDir, int sizePx)
         {
             Console.WriteLine($"[QR] Generating pure QR code image for URL: {url} at size {sizePx}px");
 
@@ -43,47 +43,50 @@ namespace DPL_project.DemoCertificate
                 throw;
             }
         }
-
-        /// <summary>
-        /// Generates a pure square QR code image - calculate page size to get exact pixel dimensions
-        /// </summary>
         private static byte[] GeneratePureQrCodePng(string url, int sizePx)
         {
-            Console.WriteLine($"[QR] Creating pure {sizePx}x{sizePx} QR code");
+            Console.WriteLine($"[QR] Creating {sizePx}x{sizePx} QR code centered on A4 page");
 
-            // Calculate page size: at 96 DPI, pixels / 96 = inches
-            // So for 250px: 250 / 96 = 2.604 inches
             const int dpi = 96;
-            double sizeInches = sizePx / (double)dpi;
+            double qrSizeInches = sizePx / (double)dpi;
 
-            Console.WriteLine($"[QR] Page size: {sizeInches:F3} inches at {dpi} DPI = {sizePx}px");
+            // A4 dimensions
+            const double a4HeightInches = 11.69;
+            const double a4WidthInches = 8.27;
+
+            // Calculate center position for QR code on A4 page
+            double xOffset = (a4WidthInches - qrSizeInches) / 2.0;
+            double yOffset = (a4HeightInches - qrSizeInches) / 2.0;
+
+            Console.WriteLine($"[QR] QR size: {qrSizeInches:F3}\" × {qrSizeInches:F3}\"");
+            Console.WriteLine($"[QR] A4 page: {a4WidthInches:F3}\" × {a4HeightInches:F3}\"");
+            Console.WriteLine($"[QR] QR centered at position: X={xOffset:F3}\", Y={yOffset:F3}\"");
 
             // Create minimal report with QR code
             var report = new Telerik.Reporting.Report();
-            report.PageSettings.PaperKind = PaperKind.Custom;  // ADD THIS
+            // Don't set PaperKind - it's Windows-only and not needed for IMAGE rendering
+            // PaperSize alone is sufficient for cross-platform image generation
             report.PageSettings.Landscape = false;
             report.PageSettings.Margins = new MarginsU(Unit.Inch(0), Unit.Inch(0), Unit.Inch(0), Unit.Inch(0));
-            report.PageSettings.PaperSize = new SizeU(Unit.Inch(sizeInches), Unit.Inch(sizeInches));
-            report.Width = Unit.Inch(sizeInches);
+            report.PageSettings.PaperSize = new SizeU(Unit.Inch(a4WidthInches), Unit.Inch(a4HeightInches));
+            report.Width = Unit.Inch(a4WidthInches);
 
             var detailSection = new Telerik.Reporting.DetailSection
             {
-                Height = Unit.Inch(sizeInches),
-
+                Height = Unit.Inch(a4HeightInches),
             };
-           
+
             report.Items.Add(detailSection);
 
             var qrCode = new Telerik.Reporting.Barcode
             {
                 Value = url,
-                //Encoder = new QRCodeEncoder(),
-              Encoder = new Telerik.Reporting.Barcodes.QRCodeEncoder 
-                { 
+                Encoder = new Telerik.Reporting.Barcodes.QRCodeEncoder
+                {
                     ErrorCorrectionLevel = Telerik.Reporting.Barcodes.QRCode.ErrorCorrectionLevel.M
                 },
-                Location = new PointU(Unit.Inch(0), Unit.Inch(0)),
-                Size = new SizeU(Unit.Inch(sizeInches), Unit.Inch(sizeInches)),
+                Location = new PointU(Unit.Inch(xOffset), Unit.Inch(yOffset)), // Centered position
+                Size = new SizeU(Unit.Inch(qrSizeInches), Unit.Inch(qrSizeInches)),
                 Stretch = true,  // Make QR fill entire area
                 Style =
                 {
@@ -107,8 +110,8 @@ namespace DPL_project.DemoCertificate
                 ["OutputFormat"] = "PNG",
                 ["DpiX"] = dpi,
                 ["DpiY"] = dpi,
-                ["StartPage"] = 0,  // ADD THIS
-                ["EndPage"] = 0 
+                ["StartPage"] = 0,
+                ["EndPage"] = 0
             };
 
             var result = reportProcessor.RenderReport("IMAGE", instanceReportSource, imageSettings);

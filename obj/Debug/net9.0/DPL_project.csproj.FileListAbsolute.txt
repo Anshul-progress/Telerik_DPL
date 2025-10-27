@@ -534,6 +534,6 @@
 /Users/angour/Desktop/DPL_project/obj/Debug/net9.0/DPL_project.Telerik_Reporting_19.Bin.Telerik.ReportViewer.Wpf.TextResources.resources
 /Users/angour/Desktop/DPL_project/obj/Debug/net9.0/DPL_project.csproj.GenerateResource.cache
 /Users/angour/Desktop/DPL_project/bin/Debug/net9.0/Demo_certificate/Output/qr_code.png
-/Users/angour/Desktop/DPL_project/bin/Debug/net9.0/Demo_certificate/Output/demo_certificate_9C04C235-E793-4EA7-A9EF-FBE3977CC97B.pdf
 /Users/angour/Desktop/DPL_project/bin/Debug/net9.0/Demo_certificate/Output/.DS_Store
 /Users/angour/Desktop/DPL_project/bin/Debug/net9.0/Demo_certificate/Output/demo_certificate_9C04C235.pdf
+/Users/angour/Desktop/DPL_project/obj/Debug/net9.0/DPL_project.sourcelink.json
