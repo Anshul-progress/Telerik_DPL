@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Reporting.AI.RAG</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Reporting.AI.RAG.AITableProcessor">
+            <summary>
+            Processes AI table data by filtering and reducing tables to only relevant cells based on query similarity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.AITableProcessor.ReduceTablesToRelevantCellsOnlyAsync(System.String[],System.String,Telerik.Documents.AI.Core.IContextFragmentsManager,Telerik.Documents.AI.Core.EmbeddingSettings)">
+            <summary>
+            Reduces tables to contain only cells that are relevant to the given query.
+            </summary>
+            <param name="fragments">The JSON fragments containing table data.</param>
+            <param name="query">The query to analyze for relevance.</param>
+            <param name="contextFragmentsManager">The context fragments manager for AI operations.</param>
+            <param name="settings">The embedding settings to use for analysis.</param>
+            <returns>An array of filtered fragments containing only relevant table cells.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any required parameter is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the query is null or empty.</exception>
+        </member>
+        <member name="T:Telerik.Reporting.AI.RAG.JsonTableFilter">
+            <summary>
+            Handles filtering of JSON table structures based on relevant cells.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.FilterFragmentsWithRelevantCells(System.String[],System.Collections.Generic.IReadOnlyDictionary{System.Int32,System.Collections.Generic.HashSet{System.String}})">
+            <summary>
+            Filters fragments to keep only relevant cells and their row/column companions.
+            </summary>
+            <param name="fragments">The fragments to filter.</param>
+            <param name="relevantCells">The mapping of relevant cells by table index.</param>
+            <returns>An array of filtered fragments.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.FilterTablesInElement(System.Text.Json.JsonElement,System.Collections.Generic.IReadOnlyDictionary{System.Int32,System.Collections.Generic.HashSet{System.String}},System.Int32@)">
+            <summary>
+            Filters tables within a JSON element.
+            </summary>
+            <param name="element">The JSON element to filter.</param>
+            <param name="relevantCells">The mapping of relevant cells by table index.</param>
+            <param name="tableIndex">The current table index counter.</param>
+            <returns>The filtered JSON element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.ProcessNestedElement(System.Text.Json.JsonElement,System.Collections.Generic.IReadOnlyDictionary{System.Int32,System.Collections.Generic.HashSet{System.String}},System.Int32@)">
+            <summary>
+            Processes nested JSON elements recursively.
+            </summary>
+            <param name="element">The JSON element to process.</param>
+            <param name="relevantCells">The mapping of relevant cells by table index.</param>
+            <param name="tableIndex">The current table index counter.</param>
+            <returns>The processed JSON element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.ProcessObjectElement(System.Text.Json.JsonElement,System.Collections.Generic.IReadOnlyDictionary{System.Int32,System.Collections.Generic.HashSet{System.String}},System.Int32@)">
+            <summary>
+            Processes a JSON object element.
+            </summary>
+            <param name="element">The JSON object element to process.</param>
+            <param name="relevantCells">The mapping of relevant cells by table index.</param>
+            <param name="tableIndex">The current table index counter.</param>
+            <returns>The processed JSON element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.ProcessArrayElement(System.Text.Json.JsonElement,System.Collections.Generic.IReadOnlyDictionary{System.Int32,System.Collections.Generic.HashSet{System.String}},System.Int32@)">
+            <summary>
+            Processes a JSON array element.
+            </summary>
+            <param name="element">The JSON array element to process.</param>
+            <param name="relevantCells">The mapping of relevant cells by table index.</param>
+            <param name="tableIndex">The current table index counter.</param>
+            <returns>The processed JSON element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.CreateJsonElementFromBytes(System.Byte[])">
+            <summary>
+            Creates a JSON element from byte array.
+            </summary>
+            <param name="bytes">The byte array containing JSON data.</param>
+            <returns>The parsed JSON element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.FilterTableCells(System.Text.Json.JsonElement,System.Collections.Generic.IReadOnlyDictionary{System.Int32,System.Collections.Generic.HashSet{System.String}},System.Int32)">
+            <summary>
+            Filters table cells based on relevant cell identifiers.
+            </summary>
+            <param name="tableElement">The table element to filter.</param>
+            <param name="relevantCells">The mapping of relevant cells by table index.</param>
+            <param name="currentTableIndex">The current table index.</param>
+            <returns>The filtered table element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.GetCellsToKeep(System.Text.Json.JsonElement,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Determines which cells to keep based on relevant cells and their row/column companions.
+            </summary>
+            <param name="tableElement">The table element to analyze.</param>
+            <param name="relevantCells">The set of relevant cell identifiers.</param>
+            <returns>A set of cell identifiers to keep.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.ParseCellIndex(System.String)">
+            <summary>
+            Parses a cell identifier to extract row and column information.
+            </summary>
+            <param name="cellId">The cell identifier to parse.</param>
+            <returns>A tuple containing the row and column identifiers.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.CreateEmptyTable(System.Text.Json.JsonElement)">
+            <summary>
+            Creates an empty table structure preserving metadata.
+            </summary>
+            <param name="originalTable">The original table element.</param>
+            <returns>An empty table element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.CreateFilteredTable(System.Text.Json.JsonElement,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Creates a filtered table containing only the specified cells.
+            </summary>
+            <param name="originalTable">The original table element.</param>
+            <param name="cellsToKeep">The set of cell identifiers to keep.</param>
+            <returns>The filtered table element.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.WriteFilteredContents(System.Text.Json.Utf8JsonWriter,System.Text.Json.JsonElement,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Writes filtered contents to the JSON writer.
+            </summary>
+            <param name="jsonWriter">The JSON writer to write to.</param>
+            <param name="contentsProperty">The contents property to filter.</param>
+            <param name="cellsToKeep">The set of cell identifiers to keep.</param>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableFilter.ShouldIncludeElement(System.Text.Json.JsonElement,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Determines whether an element should be included in the filtered output.
+            </summary>
+            <param name="childElement">The element to check.</param>
+            <param name="cellsToKeep">The set of cell identifiers to keep.</param>
+            <returns>True if the element should be included, false otherwise.</returns>
+        </member>
+        <member name="T:Telerik.Reporting.AI.RAG.JsonTableHelper">
+            <summary>
+            Provides helper methods for working with JSON table structures.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableHelper.ContainsTable(System.Text.Json.JsonElement)">
+            <summary>
+            Determines if the given JSON element contains any table structures.
+            </summary>
+            <param name="element">The JSON element to check.</param>
+            <returns>True if the element contains tables, false otherwise.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableHelper.IsTable(System.Text.Json.JsonElement)">
+            <summary>
+            Determines if the given JSON element represents a table.
+            </summary>
+            <param name="element">The JSON element to check.</param>
+            <returns>True if the element is a table, false otherwise.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.JsonTableHelper.IsTableCell(System.Text.Json.JsonElement)">
+            <summary>
+            Determines if the given JSON element represents a table cell.
+            </summary>
+            <param name="childElement">The JSON element to check.</param>
+            <returns>True if the element is a cell, false otherwise.</returns>
+        </member>
+        <member name="T:Telerik.Reporting.AI.RAG.ReflectionTarget">
+            <summary>
+            The class is called through reflection from Telerik.Reporting.AI.RAG.RAGFacade.
+            Do not change its name or namespace without updating the reflection code.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.ReflectionTarget.GetRelevantMetadataFragments(Telerik.Reporting.Configuration.IRAGSettings,System.String,System.String,System.String)">
+            <summary>
+            Called through reflection from Telerik.Reporting.AI.RAGFacade.GetRelevantMetadataFragments.
+            Do not change its name or arguments without updating the reflection code.
+            </summary>
+            <param name="ragSettings"></param>
+            <param name="modelId"></param>
+            <param name="metadata"></param>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.ReflectionTarget.GetTokensCount(Telerik.Reporting.Configuration.IRAGSettings,System.String,System.String)">
+            <summary>
+            Called through reflection from Telerik.Reporting.AI.RAGFacade.GetTokensCount.
+            Do not change its name or arguments without updating the reflection code.
+            </summary>
+            <param name="ragSettings"></param>
+            <param name="modelId"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Reporting.AI.RAG.SimilarityAnalyzer">
+            <summary>
+            Handles similarity analysis for table cells using AI embeddings.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.SimilarityAnalyzer.ExtractRelevantCellsAsync(System.String,Telerik.Documents.AI.Core.IContextFragmentsManager,Telerik.Documents.AI.Core.EmbeddingSettings,System.Collections.Generic.IReadOnlyList{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Extracts relevant cells based on similarity analysis.
+            </summary>
+            <param name="query">The query to analyze against.</param>
+            <param name="contextFragmentsManager">The context fragments manager.</param>
+            <param name="tableSplitSettings">The embedding settings to use.</param>
+            <param name="cellValueDictionaries">The cell value dictionaries to analyze.</param>
+            <returns>A dictionary mapping table indices to relevant cell identifiers.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.SimilarityAnalyzer.CreateSplitFragments(System.Collections.Generic.IReadOnlyList{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Creates formatted fragments for similarity analysis.
+            </summary>
+            <param name="cellValueDictionaries">The cell value dictionaries to process.</param>
+            <returns>A list of formatted fragment strings.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.SimilarityAnalyzer.CalculateSimilarityScoresAsync(System.String,Telerik.Documents.AI.Core.IContextFragmentsManager,Telerik.Documents.AI.Core.EmbeddingSettings,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Calculates similarity scores for the given fragments against the query.
+            </summary>
+            <param name="query">The query to analyze against.</param>
+            <param name="contextFragmentsManager">The context fragments manager.</param>
+            <param name="tableSplitSettings">The embedding settings to use.</param>
+            <param name="splitFragments">The fragments to analyze.</param>
+            <returns>A list of similarity scores.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.SimilarityAnalyzer.FilterCellsBySimilarity(System.Collections.Generic.IEnumerable{Telerik.Documents.AI.Core.SimilarityScore{System.String}})">
+            <summary>
+            Filters cells based on their similarity scores.
+            </summary>
+            <param name="similarityScores">The similarity scores to filter.</param>
+            <returns>A dictionary mapping table indices to relevant cell identifiers.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.SimilarityAnalyzer.CalculateSimilarityThreshold(System.Collections.Generic.IEnumerable{Telerik.Documents.AI.Core.SimilarityScore{System.String}})">
+            <summary>
+            Calculates the similarity threshold based on the distribution of scores.
+            </summary>
+            <param name="similarityScores">The similarity scores to analyze.</param>
+            <returns>The calculated threshold value.</returns>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.SimilarityAnalyzer.ParseFragmentItem(System.String)">
+            <summary>
+            Parses a fragment item to extract table index and cell identifier.
+            </summary>
+            <param name="item">The fragment item to parse.</param>
+            <returns>A tuple containing the table index and cell identifier.</returns>
+        </member>
+        <member name="T:Telerik.Reporting.AI.RAG.TableCellExtractor">
+            <summary>
+            Handles extraction of table cells from JSON fragments.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.TableCellExtractor.ExtractTableCells(System.String[])">
+            <summary>
+            Extracts table cells from the provided fragments and populates the cell value dictionaries.
+            </summary>
+            <param name="fragments">The JSON fragments to process.</param>
+            <param name="cellValueDictionaries">The list to populate with extracted cell dictionaries.</param>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.TableCellExtractor.SplitTable(System.Text.Json.JsonElement,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Recursively splits table elements and extracts cell data.
+            </summary>
+            <param name="element">The JSON element to process.</param>
+            <param name="cellValueDictionaries">The list to populate with extracted cell dictionaries.</param>
+        </member>
+        <member name="M:Telerik.Reporting.AI.RAG.TableCellExtractor.HandleCell(System.Collections.Generic.Dictionary{System.String,System.String},System.Text.Json.JsonElement)">
+            <summary>
+            Handles extraction of cell data and adds it to the dictionary.
+            </summary>
+            <param name="cellValueDictionary">The dictionary to populate with cell data.</param>
+            <param name="childElement">The cell element to process.</param>
+        </member>
+    </members>
+</doc>

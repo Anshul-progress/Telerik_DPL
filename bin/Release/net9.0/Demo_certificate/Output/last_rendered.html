@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>signature-certificate-sample.pdf</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>/* Certificate Styles */
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | Public domain */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+
+a { text-decoration:none; }
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; font-family:"Ubuntu", Helvetica, Arial, sans-serif; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+table { border-collapse:collapse; border-spacing:0; font-size:16px; width:100%; margin-bottom:17px; }
+
+table thead td { font-weight:bold; font-size:13px; text-transform:uppercase; padding:4px; background-color:#dfdfdf; }
+
+table tbody td { font-size:13px; padding:4px; }
+
+table tbody td dt { font-weight:bold; margin-bottom:4px; }
+
+table tbody td dd { margin-bottom:7px; }
+
+table tbody td dl dl { margin-left:10px; }
+
+table.signers thead tr { border-bottom:none; }
+
+table.signers tr { border-bottom:1px solid #CCC; }
+
+table.audits td.payload { line-height:12px; }
+
+h2 { font-size:21px; font-weight:bold; text-transform:uppercase; display:block; letter-spacing:2; margin-bottom:10px; }
+
+#logo { background-color:#fff; float:left; }
+#logo svg { display:block; width:330px; height:85px; margin-right:10px; }
+#logo h1 { font-size:20px; text-transform:uppercase; font-weight:bold; display:block; letter-spacing:2; margin-top:2px; }
+
+.header { position:relative; overflow:hidden; margin-bottom:20px; }
+
+#reference_number { position:relative; overflow:hidden; float:right; border:1px solid #000; padding:10px 15px 10px 10px; margin-top:20px; }
+#reference_number svg { float:left; margin-right:10px; width:90px; height:90px; }
+#reference_number div { float:left; }
+#reference_number h2 { font-weight:bold; font-size:18px; margin-top:20px; margin-bottom:5px; }
+#reference_number p { font-size:15px; }
+
+.small-checksum { font-size:10px; background-color:#f9f9f9; padding:4px; border-radius:3px; text-align:center; font-family:Courier, sans-serif; }
+
+img.signature { border:1px solid #f2f2f2; }
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <div id="logo">
+            <img alt='Logo' width='180' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUxIiBoZWlnaHQ9IjYxIiB2aWV3Qm94PSIwIDAgNDUxIDYxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTQ1LjUzIDIyLjc5MDRDMTQ4LjQxIDIyLjc5MDUgMTUwLjc0IDIzLjcwMDMgMTUyLjQ3OSAyNS41MTAxTDE1Mi40OSAyNS40ODk2VjIzLjMwMDJIMTU3LjZWNDcuMDY5N0MxNTcuNiA1MC40Mjk3IDE1Ny4xNiA1My4wNTAyIDE1Ni4yOSA1NC44NDAyQzE1NC40OCA1OC41NjAxIDE1MC43NiA2MC41Mjk2IDE0NS41NCA2MC41Mjk3QzEzOS41OCA2MC41Mjk3IDEzNS41MzkgNTcuNjY5OSAxMzQuOTc5IDUzLjA1OTlMMTM0Ljg5IDUyLjM1SDE0MC4yMUwxNDAuMzIgNTIuODVDMTQwLjgyIDU1LjA5OTkgMTQzLjQxIDU1Ljg5OTggMTQ1LjY3IDU1Ljg5OThDMTQ5LjgyIDU1Ljg5OTggMTUxLjkgNTMuODkwMiAxNTIuMTkgNDkuNTgwNUMxNTIuMjIgNDkuMTEwNSAxNTIuMjUgNDguMDA5OCAxNTIuMjcgNDYuODU5N0MxNTAuNTYgNDguNjE5NiAxNDguMTkgNDkuNTk5OSAxNDUuNTMgNDkuNkMxMzcuNTcgNDkuNiAxMzQgNDIuNzE5NiAxMzQgMzYuMjM5NkMxMzQgMjkuNzU5NyAxMzcuNiAyMi43OTA0IDE0NS41MyAyMi43OTA0Wk0xNDYuMDEgMjcuNTY5N0MxNDIuMDUgMjcuNTY5OCAxMzkuNTkgMzAuODEwMiAxMzkuNTkgMzYuMDEwMUMxMzkuNTkgNDMuOTIgMTQzLjk4IDQ0Ljc3OTcgMTQ1Ljg3IDQ0Ljc3OTdDMTQ5LjkyIDQ0Ljc3OTYgMTUyLjM0IDQxLjUgMTUyLjM0IDM2LjAxMDFDMTUyLjM0IDI5Ljc5MDEgMTQ5LjA3IDI3LjU2OTcgMTQ2LjAxIDI3LjU2OTdaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZD0iTTExLjk0MDQgMTUuMTU5NkMxMi40NDA1IDE0Ljg3OTggMTMuMjUwNCAxNC44Nzk3IDEzLjc0MDIgMTUuMTU5NkwzMC4yNTk4IDI0LjY5OTZWNDMuNzc5N0MzMC4yNTk4IDQ0LjM0OTYgMjkuODUwMyA0NS4wNTAyIDI5LjM2MDQgNDUuMzQwMkwxOC4yMDAyIDUxLjc5MDRWMzEuNjcwM0wwLjc4MDI3MyAyMS42MDk3TDExLjk0MDQgMTUuMTU5NloiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExOC42NCAyMi43OTA0QzEyMi41OSAyMi43OTA0IDEyNS44NSAyNC4yMSAxMjguMDggMjYuODlDMTMwLjA0IDI5LjI1OTkgMTMxLjEzIDMyLjU3OTggMTMxLjEzIDM2LjIzOTZDMTMxLjEzIDQyLjU5OTYgMTI3Ljg2IDUwLjAyOTcgMTE4LjY0IDUwLjAyOTdDMTExLjA1IDUwLjAyOTUgMTA2LjE1IDQ0LjY4OTkgMTA2LjE1IDM2LjQzMDFDMTA2LjE1IDM0LjQ3MDEgMTA2LjQ5IDMwLjY5MDEgMTA4Ljc5IDI3LjQ3MDFDMTEwLjk4IDI0LjQxMDIgMTE0LjM5IDIyLjc5MDUgMTE4LjY0IDIyLjc5MDRaTTExOC42NCAyNy41Njk3QzExNC40MiAyNy41Njk5IDExMS43OSAzMS4wMyAxMTEuNzkgMzYuNDM5OEMxMTEuNzkgNDEuODQ5NyAxMTQuNDEgNDUuMjEwMiAxMTguNjQgNDUuMjEwM0MxMjIuODkgNDUuMjEwMyAxMjUuNTQgNDEuNjcwMSAxMjUuNTQgMzYuMzQwMkMxMjUuNTQgMzEuMDEwMiAxMjIuODYgMjcuNTY5NyAxMTguNjQgMjcuNTY5N1oiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE4OS43MSAyMi44NUMxOTYuNTQgMjIuODUgMjAxLjMxIDI3Ljc2MDUgMjAxLjU4IDM1LjA4MDVWMzUuNTUwMkMyMDEuNTkgMzYuMTcwMiAyMDEuNiAzNy4wMzAzIDIwMS41MiAzNy42MzAzTDIwMS40NSAzOC4xNEgxODIuOTdDMTgzLjIyIDQyLjU1IDE4NS44NSA0NS4yNjAxIDE4OS45NCA0NS4yNjAxQzE5Mi4wMSA0NS4yNiAxOTQuNyA0NC41NzkzIDE5NS44MyA0MS4zNjk1TDE5NS45MyA0MS4wODA1TDE5NS45NCA0MS4xSDIwMS4zNEwyMDEuMTcgNDEuNzM5NkMxOTkuNzEgNDcuMDY5NiAxOTUuNzMgNTAuMDEwMSAxODkuOTUgNTAuMDEwMUMxODIuNDcgNTAuMDEwMSAxNzcuNDUgNDQuNTgwMiAxNzcuNDUgMzYuNTAwNEMxNzcuNDUgMzMuMTEwNCAxNzguNDcgMjkuNzkgMTgwLjI1IDI3LjM5QzE4Mi40NSAyNC40MiAxODUuNzIgMjIuODUgMTg5LjcxIDIyLjg1Wk0xODkuNjEgMjcuNTI5N0MxODYuMDggMjcuNTI5NyAxODMuNjAxIDI5LjgyOTggMTgzLjE1IDMzLjQ0OTZIMTk1Ljk0QzE5NS40OSAyOS4xMDAxIDE5Mi4zIDI3LjUyOTggMTg5LjYxIDI3LjUyOTdaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZD0iTTI3NS4yNCAxMy45Mzk4QzI3OC44OSAxMy45Mzk5IDI4Mi40OCAxNS4wMTk5IDI4NS4wNCAxNi44OTk4VjIwLjE0OThDMjgyLjMgMTcuODY5OSAyNzkuMjMgMTYuNjE5NSAyNzUuMjkgMTYuNjE5NUMyNzAuOTYgMTYuNjE5NSAyNjcuNDgxIDE4LjY3IDI2Ny40OCAyMi43Nzk3QzI2Ny40ODEgMjYuMTk5NSAyNjkuODcgMjcuNjc5NiAyNzMuNTggMjkuMTU5NkwyNzkgMzEuNDM5OEMyODQuMTMgMzMuNjU5NyAyODYuNDY5IDM2LjE2OTcgMjg2LjQ3IDQwLjY3OTFDMjg2LjQ3IDQ2LjI2OTEgMjgxLjggNDkuOTY5MSAyNzUuNDEgNDkuOTY5MUMyNzAuNzQgNDkuOTY5MSAyNjYuODYgNDguNDg5NiAyNjQuNTggNDYuNDg5NlY0My4xMjkzQzI2Ny45NCA0Ni4xNDkzIDI3MS4zNiA0Ny4yODk0IDI3NS40MSA0Ny4yODk0QzI4MC40MyA0Ny4yODk0IDI4My42MiA0NC43Nzk3IDI4My42MiA0MC43Mjk5QzI4My42MiAzNy4xOTAzIDI4MS42MiAzNS43Njk0IDI3Ny4zNTEgMzMuOTQ5NkwyNzIuMjIgMzEuNzc5N0MyNjguNTcgMzAuMjM5NyAyNjQuNjQgMjguMTI5MyAyNjQuNjQgMjIuODI5NUMyNjQuNjQgMTYuODk5OCAyNjkuNiAxMy45Mzk4IDI3NS4yNCAxMy45Mzk4WiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMzYxLjk0IDIzLjYyOTNDMzY4LjY3IDIzLjYyOTUgMzcxLjk3IDI4LjY0OTkgMzcxLjk3IDM1Ljk5OTRWMzcuMDI5N0gzNTMuNzhDMzUzLjc4IDQzLjg2OTQgMzU3Ljc3IDQ3LjQ1OTEgMzYzLjAyIDQ3LjQ1OTRMMzYzLjAxIDQ3LjQ2OTFDMzY1Ljg2IDQ3LjQ2OTEgMzY3Ljk3IDQ2Ljc4OTMgMzcwLjE0IDQ0Ljk1OTRWNDcuNzQ5NEMzNjguMjYgNDkuMjg5MyAzNjUuNzUgNDkuOTY5MSAzNjIuNzkgNDkuOTY5MUMzNTUuNzIgNDkuOTY5MSAzNTAuOTkgNDQuOTQ5NiAzNTAuOTkgMzcuMDI5N0MzNTAuOTkgMjkuMTA5OSAzNTUuMjExIDIzLjYyOTMgMzYxLjk0IDIzLjYyOTNaTTM2MS45MSAyNi4xNDk4QzM1Ny43NSAyNi4xNDk4IDM1NC41NiAyOS4yMjk5IDM1My44NyAzNC42OTk2SDM2OS4yMUMzNjkuMDQgMzAuMjQ5OCAzNjYuOTMgMjYuMTQ5OSAzNjEuOTEgMjYuMTQ5OFoiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQyNy4zMyAyMy42MjkzQzQzNC4wNiAyMy42MjkzIDQzNy4zNiAyOC42NDk3IDQzNy4zNiAzNS45OTk0VjM3LjAyOTdINDE5LjE4QzQxOS4xOCA0My44Njk1IDQyMy4xNyA0Ny40NTkzIDQyOC40MiA0Ny40NTk0TDQyOC40MSA0Ny40NjkxQzQzMS4yNiA0Ny40NjkxIDQzMy4zNyA0Ni43ODk0IDQzNS41MyA0NC45NTk0VjQ3Ljc0OTRDNDMzLjY1IDQ5LjI4OTQgNDMxLjE0IDQ5Ljk2OTEgNDI4LjE4IDQ5Ljk2OTFDNDIxLjExIDQ5Ljk2ODkgNDE2LjM4IDQ0Ljk0OTQgNDE2LjM4IDM3LjAyOTdDNDE2LjM4IDI5LjEwOTkgNDIwLjYgMjMuNjI5MyA0MjcuMzMgMjMuNjI5M1pNNDI3LjMyIDI2LjE0OThDNDIzLjE2IDI2LjE0OTggNDE5Ljk3IDI5LjIyOTkgNDE5LjI4IDM0LjY5OTZINDM0LjYyQzQzNC40NSAzMC4yNDk4IDQzMi4zNCAyNi4xNDk5IDQyNy4zMiAyNi4xNDk4WiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGQ9Ik0yMTQuNzEgMjIuODgwM0MyMjEuNTEgMjIuODgwMyAyMjUuMDMgMjUuNDQwMyAyMjUuNDcgMzAuNzEwM0wyMjUuNTEgMzEuMjUwNEgyMjAuMjdMMjIwLjIgMzAuODMwNUMyMTkuNjcgMjcuODAwNiAyMTYuNjYgMjcuMzUgMjE0LjkxIDI3LjM1QzIxMy40IDI3LjM1IDIwOS44OCAyNy42MjAzIDIwOS44OCAzMC4xMzAzQzIwOS44OCAzMS4yNzAxIDIxMC44NTEgMzIuMTA5OSAyMTIuODYgMzIuNjg5OEMyMTMuNDYgMzIuODU5OCAyMTQuMzUgMzMuMDkgMjE1LjM3IDMzLjM1QzIxNy41IDMzLjkgMjIwLjE2IDM0LjU5MDIgMjIxLjUgMzUuMDUwMkMyMjQuODMgMzYuMjIwMiAyMjYuNTIgMzguNDIwMiAyMjYuNTIgNDEuNTkwMkgyMjYuNTNDMjI2LjUzIDQ1Ljc1MDEgMjIzLjA4IDQ5LjkzOTggMjE1LjM3IDQ5LjkzOThDMjA4LjU1IDQ5LjkzOTggMjA0LjQ5IDQ2Ljk5MDEgMjAzLjk1IDQxLjYzMDNMMjAzLjg5IDQxLjA4MDVIMjA5LjIxTDIwOS4yOSA0MS40Nzk5QzIwOS45NCA0NC42OTk4IDIxMy4wMSA0NS4zODAyIDIxNS40NyA0NS4zODAzQzIxOC4xNyA0NS4zODAzIDIyMS4wNSA0NC41MDk3IDIyMS4wNSA0Mi4wNjk3QzIyMS4wNSA0MC44Mzk5IDIyMC4yNSAzOS45NjAxIDIxOC42NiAzOS40NzAxQzIxNy43MiAzOS4xOTAxIDIxNi41NyAzOC44Njk5IDIxNS4zNCAzOC41MTk5QzIxMy4yNCAzNy45Mjk5IDIxMS4wNiAzNy4zMTk3IDIwOS43MiAzNi44NTk3QzIwNi40IDM1LjY2OTcgMjA0LjUgMzMuMzYgMjA0LjUgMzAuNTEwMUMyMDQuNSAyNS4yNDAxIDIwOS42MyAyMi44ODAzIDIxNC43MSAyMi44ODAzWiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGQ9Ik0yMzkuNjcgMjIuODgwM0MyNDYuNDcgMjIuODgwMyAyNDkuOTkgMjUuNDQwMyAyNTAuNDMgMzAuNzEwM0wyNTAuNDc5IDMxLjI1MDRIMjQ1LjI0TDI0NS4xNyAzMC44MzA1QzI0NC42NCAyNy44MDA0IDI0MS42MyAyNy4zNSAyMzkuODggMjcuMzVDMjM4LjM3IDI3LjM1IDIzNC44NSAyNy42MjAzIDIzNC44NSAzMC4xMzAzQzIzNC44NSAzMS4yNzAxIDIzNS44MiAzMi4xMDk5IDIzNy44MyAzMi42ODk4QzIzOC40MyAzMi44NTk4IDIzOS4zMiAzMy4wOSAyNDAuMzUgMzMuMzVDMjQyLjQ3OSAzMy44OTk5IDI0NS4xMzkgMzQuNTkwMiAyNDYuNDc5IDM1LjA1MDJDMjQ5LjgwOSAzNi4yMjAyIDI1MS41IDM4LjQyMDIgMjUxLjUgNDEuNTkwMkgyNTEuNDc5QzI1MS40NzkgNDUuNzUwMSAyNDguMDMgNDkuOTM5NyAyNDAuMzIgNDkuOTM5OEMyMzMuNSA0OS45Mzk4IDIyOS40NDEgNDYuOTkwMSAyMjguOSA0MS42MzAzTDIyOC44NCA0MS4wODA1SDIzNC4xNkwyMzQuMjQgNDEuNDc5OUMyMzQuODkgNDQuNjk5OSAyMzcuOTYgNDUuMzgwMyAyNDAuNDIgNDUuMzgwM0MyNDMuMTIgNDUuMzgwMyAyNDYgNDQuNTA5NyAyNDYgNDIuMDY5N0MyNDYgNDAuODQgMjQ1LjIgMzkuOTYwMSAyNDMuNjEgMzkuNDcwMUMyNDIuNjcgMzkuMTkwMSAyNDEuNTEgMzguODY5OSAyNDAuMjkgMzguNTE5OUMyMzguMTkgMzcuOTI5OSAyMzYuMDEgMzcuMzE5NyAyMzQuNjggMzYuODU5N0MyMzEuMzYgMzUuNjY5NyAyMjkuNDYgMzMuMzYgMjI5LjQ2IDMwLjUxMDFDMjI5LjQ2IDI1LjI0MDEgMjM0LjU5IDIyLjg4MDMgMjM5LjY3IDIyLjg4MDNaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zMjQuMDkgMjMuNjI5M0MzMjkuNDUgMjMuNjI5MyAzMzIuODA5IDI2LjcwOTYgMzMyLjgxIDMxLjcxOTFWNDkuNDQ5NkgzMzAuMDdWNDcuMDU5OUMzMjguOTkgNDguMzY5OSAzMjYuMTkgNDkuODUgMzIzLjA2IDQ5Ljg1QzMxNy45MyA0OS44NDk4IDMxMy43MSA0Ni44ODkzIDMxMy43MSA0Mi4wMzk0QzMxMy43MSAzNy4xODk4IDMxNy45MyAzNC4yODk1IDMyMy4xNyAzNC4yODk0QzMyNi4xOSAzNC4yODk0IDMyOC45MyAzNS43MTkyIDMzMC4wNyAzNi45NjkxVjMxLjg5OThDMzMwLjA3IDI4LjQ4IDMyNy42OCAyNi4yNTkyIDMyMy44IDI2LjI1OTJDMzIwLjg5IDI2LjI1OTIgMzE4LjUgMjcuMTIgMzE2LjQ1IDI4LjQ3OTlWMjUuNzM5NkMzMTguMTYgMjQuNTk5NyAzMjAuOTUgMjMuNjI5MyAzMjQuMDkgMjMuNjI5M1pNMzIzLjM0IDM2LjY5OTZDMzE5Ljc1IDM2LjY5OTYgMzE2LjQ0MSAzOC40NzAzIDMxNi40NCA0Mi4wNTk5QzMxNi40NDEgNDUuNjQ5NiAzMTkuNzUgNDcuNDc5OCAzMjMuMzQgNDcuNDc5OUMzMjYuNDIgNDcuNDc5OSAzMjkuMjcgNDUuODc5MSAzMzAuMDcgNDMuNzE5MVY0MC40NTk0QzMyOS4yNyAzOC4yODk2IDMyNi40MiAzNi42OTk2IDMyMy4zNCAzNi42OTk2WiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGQ9Ik0yNC4wMDk4IDAuNDYwMzMzQzI0LjQ5OTcgMC4xNzAzNzEgMjUuMzA5NiAwLjE3MDQ0NSAyNS44MDk2IDAuNDYwMzMzTDQ5LjAzMDMgMTMuODY5NVY0MC42ODk4QzQ5LjAzMDMgNDEuMjU5OCA0OC42Mjk5IDQxLjk1OTYgNDguMTI5OSA0Mi4yMzk2TDM1LjYyMDEgNDkuNDYwM1YyMS42TDExLjUgNy42ODAwNkwyNC4wMDk4IDAuNDYwMzMzWiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNzUuNTg5OCAxMy44NTk3Qzg2Ljc3OTUgMTMuODU5NyA4Ny45OTAyIDIxLjMxOTUgODcuOTkwMiAyNC41Mjk3Qzg3Ljk5MDIgMzEuNTk5NyA4My41OTk2IDM1LjQ4OTYgNzUuNjM5NiAzNS40ODk2SDY4LjI4MDNWNDkuNDYwM0g2Mi40NTAyVjEzLjg1OTdINzUuNTg5OFpNNjguMjkgMzAuMjc5N0g3NC44Nzk5Qzc5Ljk4OTggMzAuMjc5NyA4Mi4wNzAyIDI4LjY0MDEgODIuMDcwMyAyNC42MzAzQzgyLjA3MDMgMjAuOTIwNCA3OS45NzAxIDE5LjExOTYgNzUuNjUwNCAxOS4xMTk1SDY4LjI5VjMwLjI3OTdaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZD0iTTI5My4zOSAyOC4xOTk2QzI5NC45MyAyNS44MDk3IDI5Ny44OTEgMjMuNjQgMzAxLjQ4IDIzLjY0QzMwNy4yNCAyMy42NDAyIDMxMC4yNiAyNy4zNSAzMTAuMjYgMzIuNjk5NlY0OS40NTk0SDMwNy40N1YzMy4xQzMwNy40NyAyOS4xNzAyIDMwNS40NyAyNi4yNTkyIDMwMC45NyAyNi4yNTkyQzI5Ny40OSAyNi4yNTkzIDI5NC42NCAyOC43MTAxIDI5My4zOSAzMS43Mjk5VjQ5LjQ1OTRIMjkwLjU0VjEyLjQwOTZIMjkzLjM5VjI4LjE5OTZaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZD0iTTM5Ni44MSAxNy4xNEgzNzkuNDJWMzAuNDc5OUgzOTUuODlWMzMuMUgzNzkuNDJWNDkuNDU5NEgzNzYuNTJWMTQuNDU5NEgzOTYuODFWMTcuMTRaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZD0iTTQwMy41IDQ5LjQ1OTRINDAwLjY1VjI0LjE0OThINDAzLjVWNDkuNDU5NFoiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBkPSJNNDEyLjA2IDQ5LjQ1OTRINDA5LjIxVjEyLjQwOTZINDEyLjA2VjQ5LjQ1OTRaIiBmaWxsPSIjMEMwRDBEIi8+PHBhdGggZD0iTTEwMS40NiAyMi45Nzk5QzEwMi45IDIyLjgwOTkgMTA0LjMgMjMuMDA5OSAxMDUuMzcgMjMuNTE5OUgxMDUuMzZMMTA1LjggMjMuNzI5OUwxMDQuODEgMjguOTg5NkwxMDQuMTMgMjguNzc5N0MxMDMuNTcgMjguNjA5NyAxMDMuMDEgMjguNTIgMTAyLjQ0IDI4LjUxOTlDOTYuOTkwNSAyOC41MTk5IDk2LjU0OTggMzIuODU5OSA5Ni41NDk4IDM4LjEwOTdWNDkuNDQ5Nkg5MS4xNTA0VjIzLjMwOTlIOTYuMjE5N1YyNi40NjAzQzk3LjU5OTcgMjQuMzQwMyA5OS4yNyAyMy4yMzk5IDEwMS40NiAyMi45Nzk5WiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGQ9Ik0xNzIuNjQgMjIuOTc5OUMxNzQuMDggMjIuODA5OSAxNzUuNDggMjMuMDA5OSAxNzYuNTQgMjMuNTE5OUgxNzYuNTNMMTc2Ljk3IDIzLjcyOTlMMTc1Ljk3OSAyOC45ODk2TDE3NS4zIDI4Ljc3OTdDMTc0Ljc0IDI4LjYwOTcgMTc0LjE4IDI4LjUxOTkgMTczLjYyIDI4LjUxOTlDMTY4LjE3IDI4LjUxOTkgMTY3LjczIDMyLjg1OTkgMTY3LjcyOSAzOC4xMDk3VjQ5LjQ0OTZIMTYyLjMzVjIzLjMwOTlIMTY3LjRWMjYuNDYwM0MxNjguNzggMjQuMzQwNCAxNzAuNDUgMjMuMjM5OSAxNzIuNjQgMjIuOTc5OVoiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBkPSJNMzQ4LjEwMSAyMy42MjkzQzM0OS4wNyAyMy42MjkzIDM0OS43NSAyMy43OTkyIDM1MC4zMiAyMy45NjkxVjI2Ljc1OTJMMzUwLjMzIDI2Ljc2OTlDMzQ5LjY1IDI2LjQ4IDM0OC45MSAyNi4zMSAzNDcuOTkgMjYuMzA5OUMzNDQuOTEgMjYuMzA5OSAzNDIuNDYgMjguNTI5OSAzNDEuMjYgMzEuNzc5N1Y0OS40NDk2SDMzOC40MVYyNC4xNEgzNDEuMjZWMjguMTg5OEMzNDIuNCAyNS42OCAzNDQuOTcxIDIzLjYyOTMgMzQ4LjEwMSAyMy42MjkzWiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGQ9Ik0xMi44MzAxIDQ4LjY4OThMMC43ODAyNzMgNDEuNzI5OUwxMi44MzAxIDM0Ljc2MDFWNDguNjg5OFoiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI1Ni4wNSAyMC40MjAzQzI1Ni45MiAyMC40MjAzIDI1Ny40OSAyMC45Mjk5IDI1Ny40OSAyMS43Nzk3QzI1Ny40OSAyMi4zODk2IDI1Ny4yIDIyLjgwMDMgMjU2Ljc0IDIyLjk2MDNMMjU3LjYzIDI0LjMxOTdIMjU2LjQxTDI1NS42NiAyMy4wODA1SDI1NS4zMTFMMjU1LjMyIDIzLjA5MDJWMjQuMzMwNUgyNTQuMjJWMjAuNDIwM0gyNTYuMDVaTTI1NS45MyAyMS4zNDAySDI1NS4zMlYyMi4yMTAzSDI1NS45M0MyNTYuMjYgMjIuMjEwMyAyNTYuNDQgMjIuMDQ5NyAyNTYuNDQgMjEuNzc5N0MyNTYuNDQgMjEuNTA5OCAyNTYuMjYgMjEuMzMwNSAyNTUuOTMgMjEuMzMwNVYyMS4zNDAyWiIgZmlsbD0iIzBDMEQwRCIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMjU1Ljc1IDE4LjY4MDFDMjU3Ljc2IDE4LjY4MDEgMjU5LjQzIDIwLjI0OTkgMjU5LjQzIDIyLjM5OThDMjU5LjQzIDI0LjU0OTggMjU3Ljc2IDI2LjExOTUgMjU1Ljc1IDI2LjExOTVDMjUzLjc0IDI2LjExOTUgMjUyLjA3IDI0LjU0OTggMjUyLjA3IDIyLjM5OThDMjUyLjA3IDIwLjI0OTkgMjUzLjc0IDE4LjY4MDEgMjU1Ljc1IDE4LjY4MDFaTTI1NS43NSAxOS4zMDk5QzI1NC4wOCAxOS4zMSAyNTIuNzQgMjAuNTg5OSAyNTIuNzQgMjIuMzk5OEMyNTIuNzQgMjQuMjA5OCAyNTQuMDggMjUuNDg5NiAyNTUuNzUgMjUuNDg5NkMyNTcuNDIgMjUuNDg5NiAyNTguNzYgMjQuMjA5OCAyNTguNzYgMjIuMzk5OEMyNTguNzYgMjAuNTg5OSAyNTcuNDIgMTkuMzA5OSAyNTUuNzUgMTkuMzA5OVoiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQ0MS41OSAyMC40MjAzQzQ0Mi40NiAyMC40MjAzIDQ0My4wMyAyMC45Mjk5IDQ0My4wMyAyMS43Nzk3QzQ0My4wMyAyMi4zODk2IDQ0Mi43NCAyMi44MDAzIDQ0Mi4yOCAyMi45NjAzTDQ0My4xNyAyNC4zMTk3SDQ0MS45NUw0NDEuMiAyMy4wODA1SDQ0MC44NTFMNDQwLjg2IDIzLjA5MDJWMjQuMzMwNUg0MzkuNzZWMjAuNDIwM0g0NDEuNTlaTTQ0MS40NyAyMS4zNDAySDQ0MC44NlYyMi4yMTAzSDQ0MS40N0M0NDEuOCAyMi4yMTAzIDQ0MS45OCAyMi4wNDk3IDQ0MS45OCAyMS43Nzk3QzQ0MS45OCAyMS41MDk4IDQ0MS44IDIxLjMzMDUgNDQxLjQ3IDIxLjMzMDVWMjEuMzQwMloiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQ0MS4yOCAxOC42ODAxQzQ0My4yOSAxOC42ODAyIDQ0NC45NiAyMC4yNSA0NDQuOTYgMjIuMzk5OEM0NDQuOTYgMjQuNTQ5NyA0NDMuMjkgMjYuMTE5NCA0NDEuMjggMjYuMTE5NUM0MzkuMjcgMjYuMTE5NSA0MzcuNjAxIDI0LjU0OTggNDM3LjYwMSAyMi4zOTk4QzQzNy42MDEgMjAuMjQ5OSA0MzkuMjcgMTguNjgwMSA0NDEuMjggMTguNjgwMVpNNDQxLjI4IDE5LjMwOTlDNDM5LjYxIDE5LjMwOTkgNDM4LjI3MSAyMC41ODk5IDQzOC4yNzEgMjIuMzk5OEM0MzguMjcxIDI0LjIwOTggNDM5LjYxIDI1LjQ4OTYgNDQxLjI4IDI1LjQ4OTZDNDQyLjk1IDI1LjQ4OTUgNDQ0LjI5IDI0LjIwOTcgNDQ0LjI5IDIyLjM5OThDNDQ0LjI5IDIwLjU5IDQ0Mi45NSAxOS4zMSA0NDEuMjggMTkuMzA5OVoiIGZpbGw9IiMwQzBEMEQiLz48cGF0aCBkPSJNNDAyLjA3IDE0LjUwOTJDNDAzLjE1IDE0LjUwOTMgNDA0LjAxIDE1LjQxOTggNDA0LjAxIDE2LjQ0OTZDNDA0LjAxIDE3LjUyOTUgNDAzLjE1IDE4LjM4OTkgNDAyLjA3IDE4LjM5QzQwMC45OSAxOC4zOSA0MDAuMTMgMTcuNTM5NiA0MDAuMTMgMTYuNDQ5NkM0MDAuMTMgMTUuNDE5OCA0MDAuOTkgMTQuNTA5MiA0MDIuMDcgMTQuNTA5MloiIGZpbGw9IiMwQzBEMEQiLz48L3N2Zz4=' />
+            <h1>Signature Certificate</h1>
+        </div>
+
+        <div id="reference_number">
+            <svg><!-- QR code here --></svg>
+            <div>
+                <h2>Reference Number</h2>
+                <p>DOC123456</p>
+            </div>
+        </div>
+    </div>
+
+    <table class="details">
+        <thead>
+            <tr>
+                <td>Transaction Details</td>
+                <td>Document Details</td>
+            </tr>
+        </thead>
+        <tr class="section">
+            <td class="transaction-details">
+                <dl>
+                    <dt>Reference Number</dt>
+                    <dd>DOC123456</dd>
+                    <dt>Transaction Type</dt>
+                    <dd>Signature</dd>
+                    <dt>Sent At</dt>
+                    <dd>10/13/2025 12:30 PM Pacific Time (US & Canada)</dd>
+                    <dt>Executed At</dt>
+                        <dd>10/14/2025 12:30 PM Pacific Time (US & Canada)</dd>
+                    <dt>Identity Method</dt>
+                    <dd>Email</dd>
+                    <dt>Distribution Method</dt>
+                    <dd>Email</dd>
+                    <dt>Signed Checksum</dt>
+                    <dd class="small-checksum">XYZ987654 ?? "N/A"</dd>
+                    <dt>Signer Sequencing</dt>
+                    <dd>Enabled</dd>
+                    <dt>Document Passcode</dt>
+                    <dd>Disabled</dd>
+                </dl>
+            </td>
+            <td class="document-details">
+                <dl>
+                    <dt>Document Name</dt>
+                    <dd>Sample Document</dd>
+                    <dt>Filename</dt>
+                    <dd>sample.pdf</dd>
+                    <dt>Pages</dt>
+                    <dd>3 pages</dd>
+                    <dt>Content Type</dt>
+                    <dd>application/pdf</dd>
+                    <dt>File Size</dt>
+                    <dd>1 MB</dd>
+                    <dt>Original Checksum</dt>
+                    <dd class="small-checksum">ABCDEF123456</dd>
+                </dl>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Signers</h2>
+    <table class="signers">
+        <thead>
+            <tr>
+                <td class="signer-col">Signer</td>
+                <td class="esignature-col">e-Signature</td>
+                <td class="events-col">Events</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>
+                        <dl>
+                            <dt>Name</dt>
+                            <dd>John Doe</dd>
+                                <dt>Email</dt>
+                                <dd>john@example.com</dd>
+                                <dt>Signer Sequence</dt>
+                                <dd>1</dd>
+                            <dt>Components</dt>
+                            <dd>1</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Status</dt>
+                            <dd>Signed</dd>
+                                <dt>Multi-factor Digital Fingerprint Checksum</dt>
+                                <dd class="small-checksum">FP123456</dd>
+                                <dt>IP Address</dt>
+                                <dd>192.168.1.1</dd>
+                                <dt>Device</dt>
+                                <dd>Chrome on Mac</dd>
+                                    <dt>Drawn Signature</dt>
+                                    <dd>
+                                        <dl>
+                                            <dd><img class="signature" src="signature.png" alt="SIG123" width="100" />
+                                            </dd>
+                                            <dt>Signature Reference ID</dt>
+                                            <dd>REF123</dd>
+                                                <dt>Signature Biometric Count</dt>
+                                                <dd>1</dd>
+                                        </dl>
+                                    </dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Viewed At</dt>
+                                <dd>10/13/2025 12:30 PM Pacific Time (US & Canada)</dd>
+
+                            <dt>Identity Authenticated At</dt>
+                                <dd>10/13/2025 12:30 PM Pacific Time (US & Canada)</dd>
+
+                            <dt>Signed At</dt>
+                                <dd>10/14/2025 12:30 PM Pacific Time (US & Canada)</dd>
+                        </dl>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+    <h2>Audits</h2>
+    <table class="audits">
+        <thead>
+            <tr>
+                <td class="timestamp-col">Timestamp</td>
+                <td>Audit</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>10/13/2025 12:30 PM Pacific Time (US & Canada)</td>
+                <td class="payload">Document viewed by John Doe</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+@using DPL_project.DemoCertificate
+@model DPL_project.DemoCertificate.CertificateViewModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>signature-certificate-@Model.Document.Filename</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
+    @Model.SignatureCertificateCssTag
+</head>
+
+<body>
+    <div class="header">
+        <div id="logo">
+            @Model.RightSignatureLogo
+            <h1>Signature Certificate</h1>
+        </div>
+
+        <div id="reference_number">
+            @Model.DocumentQr
+            <div>
+                <h2>Reference Number</h2>
+                <p>@Model.Document.Id.ToUpper()</p>
+            </div>
+        </div>
+    </div>
+
+    <table class="details">
+        <thead>
+            <tr>
+                <td>Transaction Details</td>
+                <td>Document Details</td>
+            </tr>
+        </thead>
+        <tr class="section">
+            <td class="transaction-details">
+                <dl>
+                    <dt>Reference Number</dt>
+                    <dd>@Model.Document.Id.ToUpper()</dd>
+                    <dt>Transaction Type</dt>
+                    <dd>@Model.Document.DocumentTransaction.Workflow.Name.Humanize().Titleize()</dd>
+                    <dt>Sent At</dt>
+                    <dd>@DateTimeFormatter.Timestamp(Model.Document.DocumentSentAt, Model.Document.User.DateFormat,
+                                                Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</dd>
+                    <dt>Executed At</dt>
+                    @if (Model.Document.DocumentExecutedAt != null)
+                    {
+                        <dd>@DateTimeFormatter.Timestamp(Model.Document.DocumentExecutedAt, Model.Document.User.DateFormat,
+                                                    Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</dd>
+                                        }
+                    else
+                    {
+                        <dd>N/A</dd>
+                    }
+                    <dt>Identity Method</dt>
+                    <dd>@Model.Document.IdentityMethod</dd>
+                    <dt>Distribution Method</dt>
+                    <dd>@Model.Document.DistributionMethod</dd>
+                    <dt>Signed Checksum</dt>
+                    <dd class="small-checksum">@Model.Document.DocumentSignedBaseFileChecksum ?? "N/A"</dd>
+                    <dt>Signer Sequencing</dt>
+                    <dd>@(Model.Document.SignerSequencing ? "Enabled" : "Disabled")</dd>
+                    <dt>Document Passcode</dt>
+                    <dd>@(Model.Document.Passcode ? "Enabled" : "Disabled")</dd>
+                </dl>
+            </td>
+            <td class="document-details">
+                <dl>
+                    <dt>Document Name</dt>
+                    <dd>@Model.Document.Name.Sanitize()</dd>
+                    <dt>Filename</dt>
+                    <dd>@Model.Document.Upload.Filename</dd>
+                    <dt>Pages</dt>
+                    <dd>@Model.RenderedMetadata.Pages</dd>
+                    <dt>Content Type</dt>
+                    <dd>@Model.Document.Upload.BaseFile.ContentType</dd>
+                    <dt>File Size</dt>
+                    <dd>@Model.RenderedMetadata.FileSize</dd>
+                    <dt>Original Checksum</dt>
+                    <dd class="small-checksum">@Model.Document.Upload.BaseFile.OriginalChecksum</dd>
+                </dl>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Signers</h2>
+    <table class="signers">
+        <thead>
+            <tr>
+                <td class="signer-col">Signer</td>
+                <td class="esignature-col">e-Signature</td>
+                <td class="events-col">Events</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var signer in Model.Document.Signers)
+            {
+                <tr>
+                    <td>
+                        <dl>
+                            <dt>Name</dt>
+                            <dd>@signer.Name.Sanitize()</dd>
+                            @if (!string.IsNullOrEmpty(signer.Email))
+                            {
+                                <dt>Email</dt>
+                                <dd>@signer.Email</dd>
+                            }
+                            @if (Model.Document.SignerSequencing)
+                            {
+                                <dt>Signer Sequence</dt>
+                                <dd>@signer.Sequence</dd>
+                            }
+                            <dt>Components</dt>
+                            <dd>@signer.Components.Count</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Status</dt>
+                            <dd>@signer.Status</dd>
+                            @if (signer.Signed && signer.Response != null)
+                            {
+                                <dt>Multi-factor Digital Fingerprint Checksum</dt>
+                                <dd class="small-checksum">@signer.Response.FingerprintChecksum</dd>
+                                <dt>IP Address</dt>
+                                <dd>@signer.Response.IpAddress</dd>
+                                <dt>Device</dt>
+                                <dd>@signer.Response.Device</dd>
+                                @foreach (var signature in signer.Response.Signatures)
+                                {
+                                    <dt>@signature.SignatureType.Capitalize() Signature</dt>
+                                    <dd>
+                                        <dl>
+                                            <dd><img class="signature" src="@signature.ImageUrl" alt="@signature.Id" width="100" />
+                                            </dd>
+                                            <dt>Signature Reference ID</dt>
+                                            <dd>@signature.ReferenceId.ToUpper()</dd>
+                                            @if (signature.ParsedJsonData != null)
+                                            {
+                                                <dt>Signature Biometric Count</dt>
+                                                <dd>@signature.ParsedJsonData.Count</dd>
+                                            }
+                                        </dl>
+                                    </dd>
+                                }
+                            }
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Viewed At</dt>
+                            @if (signer.ViewedAt != null)
+                            {
+                                <dd>@DateTimeFormatter.Timestamp(signer.ViewedAt, Model.Document.User.DateFormat,
+                                                                Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</dd>
+                                                }
+                            else
+                            {
+                                <dd>N/A</dd>
+                            }
+
+                            <dt>Identity Authenticated At</dt>
+                            @if (signer.IdentityAuthenticatedAt != null)
+                            {
+                                <dd>@DateTimeFormatter.Timestamp(signer.IdentityAuthenticatedAt, Model.Document.User.DateFormat,
+                                                                Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</dd>
+                                                }
+                            else
+                            {
+                                <dd>N/A</dd>
+                            }
+
+                            <dt>Signed At</dt>
+                            @if (signer.SignedAt != null)
+                            {
+                                <dd>@DateTimeFormatter.Timestamp(signer.SignedAt, Model.Document.User.DateFormat,
+                                                                Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</dd>
+                                                }
+                            else
+                            {
+                                <dd>N/A</dd>
+                            }
+                        </dl>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Audits</h2>
+    <table class="audits">
+        <thead>
+            <tr>
+                <td class="timestamp-col">Timestamp</td>
+                <td>Audit</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var audit in Model.Document.PublicAudits)
+            {
+                <tr>
+                    <td>@DateTimeFormatter.Timestamp(audit.CreatedAt, Model.Document.User.DateFormat,
+                                            Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</td>
+                <td class="payload">@audit.Payload</td>
+            </tr>
+                        }
+        </tbody>
+    </table>
+</body>
+
+</html>

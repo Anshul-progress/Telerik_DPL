@@ -1,0 +1,125 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Telerik.ReportViewer.Wpf.Themes/19.2.25.1001": {
+        "dependencies": {
+          "Telerik.Licensing": "1.6.16",
+          "Telerik.ReportViewer.Wpf": "19.2.25.1001",
+          "Telerik.Windows.Controls.ConversationalUI": "2025.3.813.80",
+          "Telerik.Windows.Controls": "2025.3.813.80",
+          "Telerik.Windows.Controls.Input": "2025.3.813.80",
+          "Telerik.Windows.Controls.Navigation": "2025.3.813.80",
+          "Telerik.Windows.Data": "2025.3.813.80"
+        },
+        "runtime": {
+          "Telerik.ReportViewer.Wpf.Themes.dll": {}
+        }
+      },
+      "Telerik.Licensing/1.6.16": {
+        "runtime": {
+          "lib/net8.0/Telerik.Licensing.Runtime.dll": {
+            "assemblyVersion": "1.6.16.0",
+            "fileVersion": "1.6.16.0"
+          }
+        }
+      },
+      "Telerik.ReportViewer.Wpf/19.2.25.1001": {
+        "runtime": {
+          "Telerik.ReportViewer.Wpf.dll": {
+            "assemblyVersion": "19.2.25.1001",
+            "fileVersion": "19.2.25.1001"
+          }
+        }
+      },
+      "Telerik.Windows.Controls.ConversationalUI/2025.3.813.80": {
+        "runtime": {
+          "Telerik.Windows.Controls.ConversationalUI.dll": {
+            "assemblyVersion": "2025.3.813.80",
+            "fileVersion": "2025.3.813.80"
+          }
+        }
+      },
+      "Telerik.Windows.Controls/2025.3.813.80": {
+        "runtime": {
+          "Telerik.Windows.Controls.dll": {
+            "assemblyVersion": "2025.3.813.80",
+            "fileVersion": "2025.3.813.80"
+          }
+        }
+      },
+      "Telerik.Windows.Controls.Input/2025.3.813.80": {
+        "runtime": {
+          "Telerik.Windows.Controls.Input.dll": {
+            "assemblyVersion": "2025.3.813.80",
+            "fileVersion": "2025.3.813.80"
+          }
+        }
+      },
+      "Telerik.Windows.Controls.Navigation/2025.3.813.80": {
+        "runtime": {
+          "Telerik.Windows.Controls.Navigation.dll": {
+            "assemblyVersion": "2025.3.813.80",
+            "fileVersion": "2025.3.813.80"
+          }
+        }
+      },
+      "Telerik.Windows.Data/2025.3.813.80": {
+        "runtime": {
+          "Telerik.Windows.Data.dll": {
+            "assemblyVersion": "2025.3.813.80",
+            "fileVersion": "2025.3.813.80"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Telerik.ReportViewer.Wpf.Themes/19.2.25.1001": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Licensing/1.6.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iKcb20trUOSRrJ7v/5g+fPDXn1mxi3sl1QsrGpeTJ5H4w2shb29C9JsbFCXcybESSw14inBYfk+Jv1WwAcOiWg==",
+      "path": "telerik.licensing/1.6.16",
+      "hashPath": "telerik.licensing.1.6.16.nupkg.sha512"
+    },
+    "Telerik.ReportViewer.Wpf/19.2.25.1001": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Windows.Controls.ConversationalUI/2025.3.813.80": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Windows.Controls/2025.3.813.80": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Windows.Controls.Input/2025.3.813.80": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Windows.Controls.Navigation/2025.3.813.80": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Windows.Data/2025.3.813.80": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Drawing.Skia</name>
+    </assembly>
+    <members>
+        <member name="P:Telerik.Drawing.Skia.Font.Size">
+            <summary>
+            Gets the font size in GU.
+            </summary>
+        </member>
+        <member name="M:Telerik.Drawing.Skia.Graphics.MeasureString(System.String,Telerik.Drawing.IFont,System.Drawing.SizeF,Telerik.Drawing.StringFormatBase,System.Int32@,System.Int32@)">
+            <summary>
+            Measures a string with provided font and string format within certain layout area.
+            </summary>
+            <param name="text"></param>
+            <param name="font"></param>
+            <param name="layoutArea">Can be empty or with negative width/height. Allowed for cases where we just want to get the size of the measured text.</param>
+            <param name="stringFormat"></param>
+            <param name="charactersFitted">Number of chars that fit in the passed layoutArea.</param>
+            <param name="linesFilled">Number of lines that fit in the passed layoutArea.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.M12">
+            <summary>
+            Gets or sets the M12 value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.M21">
+            <summary>
+            Gets or sets the M21 value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.M22">
+            <summary>
+            Gets or sets the M22 value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.OffsetX">
+            <summary>
+            Gets or sets the OffsetX value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.OffsetY">
+            <summary>
+            Gets or sets the OffsetY value.
+            </summary>
+        </member>
+        <member name="F:Telerik.Drawing.Skia.SweepDirection.Clockwise">
+            <summary>
+            Represents clockwise sweep direction.
+            </summary>
+        </member>
+        <member name="F:Telerik.Drawing.Skia.SweepDirection.Counterclockwise">
+            <summary>
+            Represents counterclockwise sweep direction.
+            </summary>
+        </member>
+        <member name="T:Telerik.Drawing.Skia.Text.PrivateFontCollection">
+            <summary>
+            PFC does not dispose its fonts until the end of the application lifecycle.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>signature-certificate-sample.pdf</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
+    <style>/* Certificate Styles */
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | Public domain */
+html, body, div, span, applet, object, iframe,
+ h1,h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+
+a { text-decoration:none; }
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; font-family:"Ubuntu", Helvetica, Arial, sans-serif; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+table { border-collapse:collapse; border-spacing:0; font-size:16px; width:100%; margin-bottom:17px; }
+
+table thead td { font-weight:bold; font-size:13px; text-transform:uppercase; padding:4px; background-color:#dfdfdf; }
+
+table tbody td { font-size:13px; padding:4px; }
+
+/* Inner table styles - replaces dl/dt/dd */
+table.inner-table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+table.inner-table tr {
+    border: none;
+}
+
+table.inner-table td.label {
+    font-weight: bold;
+    width: 45%;
+    padding: 0 8px 2px 0;
+    vertical-align: top;
+    border: none;
+    text-align: left;
+}
+
+table.inner-table td.value {
+    width: 55%;
+    padding: 0 0 7px 0;
+    vertical-align: top;
+    border: none;
+    text-align: left;
+}
+
+table.inner-table td.value.small-checksum {
+    font-size: 9px;
+    background-color: #f9f9f9;
+    padding: 4px;
+    text-align: left;
+    font-family: Courier, sans-serif;
+    
+}
+
+/* Nested signature table */
+table.nested-signature {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    margin: 10px 0 0 10px;
+  
+    font-size: 13px;
+}
+
+table.nested-signature tr {
+    border: none;
+    
+}
+
+table.nested-signature td.label {
+    font-weight: bold;
+    width: 50%; 
+    padding: 2px 5px 2px 0;
+    vertical-align: top;
+    border: none;
+}
+
+table.nested-signature td.value {
+    width: 50%;
+   padding: 2px 0 2px 5px;
+    vertical-align: top;
+    border: none;
+}
+
+/* Audits table - smaller font */
+table.audits td {
+    font-size: 11px;
+}
+
+table.audits td.timestamp-col {
+    font-size: 11px;
+}
+
+table.audits td.payload { 
+    line-height:15px;
+    font-size: 11px;
+}
+
+h2 { font-size:21px; font-weight:bold; text-transform:uppercase; display:block; letter-spacing:2; margin-bottom:10px; }
+
+#logo { background-color:#fff; }
+#logo svg { display:block; width:330px; height:85px; margin-right:10px;  }
+#logo h1 { font-size:20px; text-transform:uppercase; font-weight:bold; display:block; letter-spacing:2; margin-top:15px; }
+
+.header { margin-bottom:10px; margin-top:10px; }
+
+/* Reference Number Section - Table-based for PDF compatibility */
+table#reference_number {
+    padding: 0;
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 0px;
+    border-collapse: collapse;
+}
+
+table#reference_number tr {
+    border: none;
+}
+
+table#reference_number td.qr-content {
+    width: 100px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: center;
+     border-top: 1px solid #040404;
+    border-right:none ;
+    border-bottom:1px solid #040404;
+    border-left:1px solid #040404;
+}
+
+table#reference_number td.text-content {
+    width: 290px;
+    padding-left: 5px;
+    vertical-align: middle;
+    text-align: left;
+    border-top: 1px solid #040404;
+    border-right: 1px solid #040404;
+    border-bottom:1px solid #040404;
+    border-left:none;
+}
+
+table#reference_number img.qr-code {
+    width: 100px;
+    height: 100px;
+    display: block;
+    border: 1px solid #cccccc;
+}
+
+table#reference_number h2 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table#reference_number p {
+    margin: 0;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.small-checksum { font-size:9px; background-color:#f9f9f9; padding:4px;  text-align:left; font-family:Courier, sans-serif; }
+
+img.signature { border:1px solid #f2f2f2; }
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <table style="width: 100%; border: none; border-collapse: collapse;">
+            <tr>
+                <td style="width: 60%; vertical-align: top; border: none; padding: 10px 0 20px 0;">
+                    <div id="logo">
+                        <img alt='Logo' width='200' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUxIiBoZWlnaHQ9IjYxIiB2aWV3Qm94PSIwIDAgNDUxIDYxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPiA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE0NS41MyAyMi43OTA0QzE0OC40MSAyMi43OTA1IDE1MC43NCAyMy43MDAzIDE1Mi40NzkgMjUuNTEwMUwxNTIuNDkgMjUuNDg5NlYyMy4zMDAySDE1Ny42VjQ3LjA2OTdDMTU3LjYgNTAuNDI5NyAxNTcuMTYgNTMuMDUwMiAxNTYuMjkgNTQuODQwMkMxNTQuNDggNTguNTYwMSAxNTAuNzYgNjAuNTI5NiAxNDUuNTQgNjAuNTI5N0MxMzkuNTggNjAuNTI5NyAxMzUuNTM5IDU3LjY2OTkgMTM0Ljk3OSA1My4wNTk5TDEzNC44OSA1Mi4zNUgxNDAuMjFMMTQwLjMyIDUyLjg1QzE0MC44MiA1NS4wOTk5IDE0My40MSA1NS44OTk4IDE0NS42NyA1NS44OTk4QzE0OS44MiA1NS44OTk4IDE1MS45IDUzLjg5MDIgMTUyLjE5IDQ5LjU4MDVDMTUyLjIyIDQ5LjExMDUgMTUyLjI1IDQ4LjAwOTggMTUyLjI3IDQ2Ljg1OTdDMTUwLjU2IDQ4LjYxOTYgMTQ4LjE5IDQ5LjU5OTkgMTQ1LjUzIDQ5LjZDMTM3LjU3IDQ5LjYgMTM0IDQyLjcxOTYgMTM0IDM2LjIzOTZDMTM0IDI5Ljc1OTcgMTM3LjYgMjIuNzkwNCAxNDUuNTMgMjIuNzkwNFpNMTQ2LjAxIDI3LjU2OTdDMTQyLjA1IDI3LjU2OTggMTM5LjU5IDMwLjgxMDIgMTM5LjU5IDM2LjAxMDFDMTM5LjU5IDQzLjkyIDE0My45OCA0NC43Nzk3IDE0NS44NyA0NC43Nzk3QzE0OS45MiA0NC43Nzk2IDE1Mi4zNCA0MS41IDE1Mi4zNCAzNi4wMTAxQzE1Mi4zNCAyOS43OTAxIDE0OS4wNyAyNy41Njk3IDE0Ni4wMSAyNy41Njk3WiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBkPSJNMTEuOTQwNCAxNS4xNTk2QzEyLjQ0MDUgMTQuODc5OCAxMy4yNTA0IDE0Ljg3OTcgMTMuNzQwMiAxNS4xNTk2TDMwLjI1OTggMjQuNjk5NlY0My43Nzk3QzMwLjI1OTggNDQuMzQ5NiAyOS44NTAzIDQ1LjA1MDIgMjkuMzYwNCA0NS4zNDAyTDE4LjIwMDIgNTEuNzkwNFYzMS42NzAzTDAuNzgwMjczIDIxLjYwOTdMMTEuOTQwNCAxNS4xNTk2WiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExOC42NCAyMi43OTA0QzEyMi41OSAyMi43OTA0IDEyNS44NSAyNC4yMSAxMjguMDggMjYuODlDMTMwLjA0IDI5LjI1OTkgMTMxLjEzIDMyLjU3OTggMTMxLjEzIDM2LjIzOTZDMTMxLjEzIDQyLjU5OTYgMTI3Ljg2IDUwLjAyOTcgMTE4LjY0IDUwLjAyOTdDMTExLjA1IDUwLjAyOTUgMTA2LjE1IDQ0LjY4OTkgMTA2LjE1IDM2LjQzMDFDMTA2LjE1IDM0LjQ3MDEgMTA2LjQ5IDMwLjY5MDEgMTA4Ljc5IDI3LjQ3MDFDMTEwLjk4IDI0LjQxMDIgMTE0LjM5IDIyLjc5MDUgMTE4LjY0IDIyLjc5MDRaTTExOC42NCAyNy41Njk3QzExNC40MiAyNy41Njk5IDExMS43OSAzMS4wMyAxMTEuNzkgMzYuNDM5OEMxMTEuNzkgNDEuODQ5NyAxMTQuNDEgNDUuMjEwMiAxMTguNjQgNDUuMjEwM0MxMjIuODkgNDUuMjEwMyAxMjUuNTQgNDEuNjcwMSAxMjUuNTQgMzYuMzQwMkMxMjUuNTQgMzEuMDEwMiAxMjIuODYgMjcuNTY5NyAxMTguNjQgMjcuNTY5N1oiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xODkuNzEgMjIuODVDMTk2LjU0IDIyLjg1IDIwMS4zMSAyNy43NjA1IDIwMS41OCAzNS4wODA1VjM1LjU1MDJDMjAxLjU5IDM2LjE3MDIgMjAxLjYgMzcuMDMwMyAyMDEuNTIgMzcuNjMwM0wyMDEuNDUgMzguMTRIMTgyLjk3QzE4My4yMiA0Mi41NSAxODUuODUgNDUuMjYwMSAxODkuOTQgNDUuMjYwMUMxOTIuMDEgNDUuMjYgMTk0LjcgNDQuNTc5MyAxOTUuODMgNDEuMzY5NUwxOTUuOTMgNDEuMDgwNUwxOTUuOTQgNDEuMUgyMDEuMzRMMjAxLjE3IDQxLjczOTZDMTk5LjcxIDQ3LjA2OTYgMTk1LjczIDUwLjAxMDEgMTg5Ljk1IDUwLjAxMDFDMTgyLjQ3IDUwLjAxMDEgMTc3LjQ1IDQ0LjU4MDIgMTc3LjQ1IDM2LjUwMDRDMTc3LjQ1IDMzLjExMDQgMTc4LjQ3IDI5Ljc5IDE4MC4yNSAyNy4zOUMxODIuNDUgMjQuNDIgMTg1LjcyIDIyLjg1IDE4OS43MSAyMi44NVpNMTg5LjYxIDI3LjUyOTdDMTg2LjA4IDI3LjUyOTcgMTgzLjYwMSAyOS44Mjk4IDE4My4xNSAzMy40NDk2SDE5NS45NEMxOTUuNDkgMjkuMTAwMSAxOTIuMyAyNy41Mjk4IDE4OS42MSAyNy41Mjk3WiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBkPSJNMjc1LjI0IDEzLjkzOThDMjc4Ljg5IDEzLjkzOTkgMjgyLjQ4IDE1LjAxOTkgMjg1LjA0IDE2Ljg5OThWMjAuMTQ5OEMyODIuMyAxNy44Njk5IDI3OS4yMyAxNi42MTk1IDI3NS4yOSAxNi42MTk1QzI3MC45NiAxNi42MTk1IDI2Ny40ODEgMTguNjcgMjY3LjQ4IDIyLjc3OTdDMjY3LjQ4MSAyNi4xOTk1IDI2OS44NyAyNy42Nzk2IDI3My41OCAyOS4xNTk2TDI3OSAzMS40Mzk4QzI4NC4xMyAzMy42NTk3IDI4Ni40NjkgMzYuMTY5NyAyODYuNDcgNDAuNjc5MUMyODYuNDcgNDYuMjY5MSAyODEuOCA0OS45NjkxIDI3NS40MSA0OS45NjkxQzI3MC43NCA0OS45NjkxIDI2Ni44NiA0OC40ODk2IDI2NC41OCA0Ni40ODk2VjQzLjEyOTNDMjY3Ljk0IDQ2LjE0OTMgMjcxLjM2IDQ3LjI4OTQgMjc1LjQxIDQ3LjI4OTRDMjgwLjQzIDQ3LjI4OTQgMjgzLjYyIDQ0Ljc3OTcgMjgzLjYyIDQwLjcyOTlDMjgzLjYyIDM3LjE5MDMgMjgxLjYyIDM1Ljc2OTQgMjc3LjM1MSAzMy45NDk2TDI3Mi4yMiAzMS43Nzk3QzI2OC41NyAzMC4yMzk3IDI2NC42NCAyOC4xMjkzIDI2NC42NCAyMi44Mjk1QzI2NC42NCAxNi44OTk4IDI2OS42IDEzLjkzOTggMjc1LjI0IDEzLjkzOThaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMzYxLjk0IDIzLjYyOTNDMzY4LjY3IDIzLjYyOTUgMzcxLjk3IDI4LjY0OTkgMzcxLjk3IDM1Ljk5OTRWMzcuMDI5N0gzNTMuNzhDMzUzLjc4IDQzLjg2OTQgMzU3Ljc3IDQ3LjQ1OTEgMzYzLjAyIDQ3LjQ1OTRMMzYzLjAxIDQ3LjQ2OTFDMzY1Ljg2IDQ3LjQ2OTEgMzY3Ljk3IDQ2Ljc4OTMgMzcwLjE0IDQ0Ljk1OTRWNDcuNzQ5NEMzNjguMjYgNDkuMjg5MyAzNjUuNzUgNDkuOTY5MSAzNjIuNzkgNDkuOTY5MUMzNTUuNzIgNDkuOTY5MSAzNTAuOTkgNDQuOTQ5NiAzNTAuOTkgMzcuMDI5N0MzNTAuOTkgMjkuMTA5OSAzNTUuMjExIDIzLjYyOTMgMzYxLjk0IDIzLjYyOTNaTTM2MS45MSAyNi4xNDk4QzM1Ny43NSAyNi4xNDk4IDM1NC41NiAyOS4yMjk5IDM1My44NyAzNC42OTk2SDM2OS4yMUMzNjkuMDQgMzAuMjQ5OCAzNjYuOTMgMjYuMTQ5OSAzNjEuOTEgMjYuMTQ5OFoiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00MjcuMzMgMjMuNjI5M0M0MzQuMDYgMjMuNjI5MyA0MzcuMzYgMjguNjQ5NyA0MzcuMzYgMzUuOTk5NFYzNy4wMjk3SDQxOS4xOEM0MTkuMTggNDMuODY5NSA0MjMuMTcgNDcuNDU5MyA0MjguNDIgNDcuNDU5NEw0MjguNDEgNDcuNDY5MUM0MzEuMjYgNDcuNDY5MSA0MzMuMzcgNDYuNzg5NCA0MzUuNTMgNDQuOTU5NFY0Ny43NDk0QzQzMy42NSA0OS4yODk0IDQzMS4xNCA0OS45NjkxIDQyOC4xOCA0OS45NjkxQzQyMS4xMSA0OS45Njg5IDQxNi4zOCA0NC45NDk0IDQxNi4zOCAzNy4wMjk3QzQxNi4zOCAyOS4xMDk5IDQyMC42IDIzLjYyOTMgNDI3LjMzIDIzLjYyOTNaTTQyNy4zMiAyNi4xNDk4QzQyMy4xNiAyNi4xNDk4IDQxOS45NyAyOS4yMjk5IDQxOS4yOCAzNC42OTk2SDQzNC42MkM0MzQuNDUgMzAuMjQ5OCA0MzIuMzQgMjYuMTQ5OSA0MjcuMzIgMjYuMTQ5OFoiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTIxNC43MSAyMi44ODAzQzIyMS41MSAyMi44ODAzIDIyNS4wMyAyNS40NDAzIDIyNS40NyAzMC43MTAzTDIyNS41MSAzMS4yNTA0SDIyMC4yN0wyMjAuMiAzMC44MzA1QzIxOS42NyAyNy44MDA2IDIxNi42NiAyNy4zNSAyMTQuOTEgMjcuMzVDMjEzLjQgMjcuMzUgMjA5Ljg4IDI3LjYyMDMgMjA5Ljg4IDMwLjEzMDNDMjA5Ljg4IDMxLjI3MDEgMjEwLjg1MSAzMi4xMDk5IDIxMi44NiAzMi42ODk4QzIxMy40NiAzMi44NTk4IDIxNC4zNSAzMy4wOSAyMTUuMzcgMzMuMzVDMjE3LjUgMzMuOSAyMjAuMTYgMzQuNTkwMiAyMjEuNSAzNS4wNTAyQzIyNC44MyAzNi4yMjAyIDIyNi41MiAzOC40MjAyIDIyNi41MiA0MS41OTAySDIyNi41M0MyMjYuNTMgNDUuNzUwMSAyMjMuMDggNDkuOTM5OCAyMTUuMzcgNDkuOTM5OEMyMDguNTUgNDkuOTM5OCAyMDQuNDkgNDYuOTkwMSAyMDMuOTUgNDEuNjMwM0wyMDMuODkgNDEuMDgwNUgyMDkuMjFMMjA5LjI5IDQxLjQ3OTlDMjA5Ljk0IDQ0LjY5OTggMjEzLjAxIDQ1LjM4MDIgMjE1LjQ3IDQ1LjM4MDNDMjE4LjE3IDQ1LjM4MDMgMjIxLjA1IDQ0LjUwOTcgMjIxLjA1IDQyLjA2OTdDMjIxLjA1IDQwLjgzOTkgMjIwLjI1IDM5Ljk2MDEgMjE4LjY2IDM5LjQ3MDFDMjE3LjcyIDM5LjE5MDEgMjE2LjU3IDM4Ljg2OTkgMjE1LjM0IDM4LjUxOTlDMjEzLjI0IDM3LjkyOTkgMjExLjA2IDM3LjMxOTcgMjA5LjcyIDM2Ljg1OTdDMjA2LjQgMzUuNjY5NyAyMDQuNSAzMy4zNiAyMDQuNSAzMC41MTAxQzIwNC41IDI1LjI0MDEgMjA5LjYzIDIyLjg4MDMgMjE0LjcxIDIyLjg4MDNaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGQ9Ik0yMzkuNjcgMjIuODgwM0MyNDYuNDcgMjIuODgwMyAyNDkuOTkgMjUuNDQwMyAyNTAuNDMgMzAuNzEwM0wyNTAuNDc5IDMxLjI1MDRIMjQ1LjI0TDI0NS4xNyAzMC44MzA1QzI0NC42NCAyNy44MDA0IDI0MS42MyAyNy4zNSAyMzkuODggMjcuMzVDMjM4LjM3IDI3LjM1IDIzNC44NSAyNy42MjAzIDIzNC44NSAzMC4xMzAzQzIzNC44NSAzMS4yNzAxIDIzNS44MiAzMi4xMDk5IDIzNy44MyAzMi42ODk4QzIzOC40MyAzMi44NTk4IDIzOS4zMiAzMy4wOSAyNDAuMzUgMzMuMzVDMjQyLjQ3OSAzMy44OTk5IDI0NS4xMzkgMzQuNTkwMiAyNDYuNDc5IDM1LjA1MDJDMjQ5LjgwOSAzNi4yMjAyIDI1MS41IDM4LjQyMDIgMjUxLjUgNDEuNTkwMkgyNTEuNDc5QzI1MS40NzkgNDUuNzUwMSAyNDguMDMgNDkuOTM5NyAyNDAuMzIgNDkuOTM5OEMyMzMuNSA0OS45Mzk4IDIyOS40NDEgNDYuOTkwMSAyMjguOSA0MS42MzAzTDIyOC44NCA0MS4wODA1SDIzNC4xNkwyMzQuMjQgNDEuNDc5OUMyMzQuODkgNDQuNjk5OSAyMzcuOTYgNDUuMzgwMyAyNDAuNDIgNDUuMzgwM0MyNDMuMTIgNDUuMzgwMyAyNDYgNDQuNTA5NyAyNDYgNDIuMDY5N0MyNDYgNDAuODQgMjQ1LjIgMzkuOTYwMSAyNDMuNjEgMzkuNDcwMUMyNDIuNjcgMzkuMTkwMSAyNDEuNTEgMzguODY5OSAyNDAuMjkgMzguNTE5OUMyMzguMTkgMzcuOTI5OSAyMzYuMDEgMzcuMzE5NyAyMzQuNjggMzYuODU5N0MyMzEuMzYgMzUuNjY5NyAyMjkuNDYgMzMuMzYgMjI5LjQ2IDMwLjUxMDFDMjI5LjQ2IDI1LjI0MDEgMjM0LjU5IDIyLjg4MDMgMjM5LjY3IDIyLjg4MDNaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMzI0LjA5IDIzLjYyOTNDMzI5LjQ1IDIzLjYyOTMgMzMyLjgwOSAyNi43MDk2IDMzMi44MSAzMS43MTkxVjQ5LjQ0OTZIMzMwLjA3VjQ3LjA1OTlDMzI4Ljk5IDQ4LjM2OTkgMzI2LjE5IDQ5Ljg1IDMyMy4wNiA0OS44NUMzMTcuOTMgNDkuODQ5OCAzMTMuNzEgNDYuODg5MyAzMTMuNzEgNDIuMDM5NEMzMTMuNzEgMzcuMTg5OCAzMTcuOTMgMzQuMjg5NSAzMjMuMTcgMzQuMjg5NEMzMjYuMTkgMzQuMjg5NCAzMjguOTMgMzUuNzE5MiAzMzAuMDcgMzYuOTY5MVYzMS44OTk4QzMzMC4wNyAyOC40OCAzMjcuNjggMjYuMjU5MiAzMjMuOCAyNi4yNTkyQzMyMC44OSAyNi4yNTkyIDMxOC41IDI3LjEyIDMxNi40NSAyOC40Nzk5VjI1LjczOTZDMzE4LjE2IDI0LjU5OTcgMzIwLjk1IDIzLjYyOTMgMzI0LjA5IDIzLjYyOTNaTTMyMy4zNCAzNi42OTk2QzMxOS43NSAzNi42OTk2IDMxNi40NDEgMzguNDcwMyAzMTYuNDQgNDIuMDU5OUMzMTYuNDQxIDQ1LjY0OTYgMzE5Ljc1IDQ3LjQ3OTggMzIzLjM0IDQ3LjQ3OTlDMzI2LjQyIDQ3LjQ3OTkgMzI5LjI3IDQ1Ljg3OTEgMzMwLjA3IDQzLjcxOTFWNDAuNDU5NEMzMjkuMjcgMzguMjg5NiAzMjYuNDIgMzYuNjk5NiAzMjMuMzQgMzYuNjk5NloiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTI0LjAwOTggMC40NjAzMzNDMjQuNDk5NyAwLjE3MDM3MSAyNS4zMDk2IDAuMTcwNDQ1IDI1LjgwOTYgMC40NjAzMzNMNDkuMDMwMyAxMy44Njk1VjQwLjY4OThDNDkuMDMwMyA0MS4yNTk4IDQ4LjYyOTkgNDEuOTU5NiA0OC4xMjk5IDQyLjIzOTZMMzUuNjIwMSA0OS40NjAzVjIxLjZMMTEuNSA3LjY4MDA2TDI0LjAwOTggMC40NjAzMzNaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNzUuNTg5OCAxMy44NTk3Qzg2Ljc3OTUgMTMuODU5NyA4Ny45OTAyIDIxLjMxOTUgODcuOTkwMiAyNC41Mjk3Qzg3Ljk5MDIgMzEuNTk5NyA4My41OTk2IDM1LjQ4OTYgNzUuNjM5NiAzNS40ODk2SDY4LjI4MDNWNDkuNDYwM0g2Mi40NTAyVjEzLjg1OTdINzUuNTg5OFpNNjguMjkgMzAuMjc5N0g3NC44Nzk5Qzc5Ljk4OTggMzAuMjc5NyA4Mi4wNzAyIDI4LjY0MDEgODIuMDcwMyAyNC42MzAzQzgyLjA3MDMgMjAuOTIwNCA3OS45NzAxIDE5LjExOTYgNzUuNjUwNCAxOS4xMTk1SDY4LjI5VjMwLjI3OTdaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGQ9Ik0yOTMuMzkgMjguMTk5NkMyOTQuOTMgMjUuODA5NyAyOTcuODkxIDIzLjY0IDMwMS40OCAyMy42NEMzMDcuMjQgMjMuNjQwMiAzMTAuMjYgMjcuMzUgMzEwLjI2IDMyLjY5OTZWNDkuNDU5NEgzMDcuNDdWMzMuMUMzMDcuNDcgMjkuMTcwMiAzMDUuNDcgMjYuMjU5MiAzMDAuOTcgMjYuMjU5MkMyOTcuNDkgMjYuMjU5MyAyOTQuNjQgMjguNzEwMSAyOTMuMzkgMzEuNzI5OVY0OS40NTk0SDI5MC41NFYxMi40MDk2SDI5My4zOVYyOC4xOTk2WiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBkPSJNMzk2LjgxIDE3LjE0SDM3OS40MlYzMC40Nzk5SDM5NS44OVYzMy4xSDM3OS40MlY0OS40NTk0SDM3Ni41MlYxNC40NTk0SDM5Ni44MVYxNy4xNFoiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTQwMy41IDQ5LjQ1OTRINDAwLjY1VjI0LjE0OThINDAzLjVWNDkuNDU5NFoiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTQxMi4wNiA0OS40NTk0SDQwOS4yMVYxMi40MDk2SDQxMi4wNlY0OS40NTk0WiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBkPSJNMTAxLjQ2IDIyLjk3OTlDMTAyLjkgMjIuODA5OSAxMDQuMyAyMy4wMDk5IDEwNS4zNyAyMy41MTk5SDEwNS4zNkwxMDUuOCAyMy43Mjk5TDEwNC44MSAyOC45ODk2TDEwNC4xMyAyOC43Nzk3QzEwMy41NyAyOC42MDk3IDEwMy4wMSAyOC41MiAxMDIuNDQgMjguNTE5OUM5Ni45OTA1IDI4LjUxOTkgOTYuNTQ5OCAzMi44NTk5IDk2LjU0OTggMzguMTA5N1Y0OS40NDk2SDkxLjE1MDRWMjMuMzA5OUg5Ni4yMTk3VjI2LjQ2MDNDOTcuNTk5NyAyNC4zNDAzIDk5LjI3IDIzLjIzOTkgMTAxLjQ2IDIyLjk3OTlaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGQ9Ik0xNzIuNjQgMjIuOTc5OUMxNzQuMDggMjIuODA5OSAxNzUuNDggMjMuMDA5OSAxNzYuNTQgMjMuNTE5OUgxNzYuNTNMMTc2Ljk3IDIzLjcyOTlMMTc1Ljk3OSAyOC45ODk2TDE3NS4zIDI4Ljc3OTdDMTc0Ljc0IDI4LjYwOTcgMTc0LjE4IDI4LjUxOTkgMTczLjYyIDI4LjUxOTlDMTY4LjE3IDI4LjUxOTkgMTY3LjczIDMyLjg1OTkgMTY3LjcyOSAzOC4xMDk3VjQ5LjQ0OTZIMTYyLjMzVjIzLjMwOTlIMTY3LjRWMjYuNDYwM0MxNjguNzggMjQuMzQwNCAxNzAuNDUgMjMuMjM5OSAxNzIuNjQgMjIuOTc5OVoiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTM0OC4xMDEgMjMuNjI5M0MzNDkuMDcgMjMuNjI5MyAzNDkuNzUgMjMuNzk5MiAzNTAuMzIgMjMuOTY5MVYyNi43NTkyTDM1MC4zMyAyNi43Njk5QzM0OS42NSAyNi40OCAzNDguOTEgMjYuMzEgMzQ3Ljk5IDI2LjMwOTlDMzQ0LjkxIDI2LjMwOTkgMzQyLjQ2IDI4LjUyOTkgMzQxLjI2IDMxLjc3OTdWNDkuNDQ5NkgzMzguNDFWMjQuMTRIMzQxLjI2VjI4LjE4OThDMzQyLjQgMjUuNjggMzQ0Ljk3MSAyMy42MjkzIDM0OC4xMDEgMjMuNjI5M1oiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTEyLjgzMDEgNDguNjg5OEwwLjc4MDI3MyA0MS43Mjk5TDEyLjgzMDEgMzQuNzYwMVY0OC42ODk4WiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI1Ni4wNSAyMC40MjAzQzI1Ni45MiAyMC40MjAzIDI1Ny40OSAyMC45Mjk5IDI1Ny40OSAyMS43Nzk3QzI1Ny40OSAyMi4zODk2IDI1Ny4yIDIyLjgwMDMgMjU2Ljc0IDIyLjk2MDNMMjU3LjYzIDI0LjMxOTdIMjU2LjQxTDI1NS42NiAyMy4wODA1SDI1NS4zMTFMMjU1LjMyIDIzLjA5MDJWMjQuMzMwNUgyNTQuMjJWMjAuNDIwM0gyNTYuMDVaTTI1NS45MyAyMS4zNDAySDI1NS4zMlYyMi4yMTAzSDI1NS45M0MyNTYuMjYgMjIuMjEwMyAyNTYuNDQgMjIuMDQ5NyAyNTYuNDQgMjEuNzc5N0MyNTYuNDQgMjEuNTA5OCAyNTYuMjYgMjEuMzMwNSAyNTUuOTMgMjEuMzMwNVYyMS4zNDAyWiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI1NS43NSAxOC42ODAxQzI1Ny43NiAxOC42ODAxIDI1OS40MyAyMC4yNDk5IDI1OS40MyAyMi4zOTk4QzI1OS40MyAyNC41NDk4IDI1Ny43NiAyNi4xMTk1IDI1NS43NSAyNi4xMTk1QzI1My43NCAyNi4xMTk1IDI1Mi4wNyAyNC41NDk4IDI1Mi4wNyAyMi4zOTk4QzI1Mi4wNyAyMC4yNDk5IDI1My43NCAxOC42ODAxIDI1NS43NSAxOC42ODAxWk0yNTUuNzUgMTkuMzA5OUMyNTQuMDggMTkuMzEgMjUyLjc0IDIwLjU4OTkgMjUyLjc0IDIyLjM5OThDMjUyLjc0IDI0LjIwOTggMjU0LjA4IDI1LjQ4OTYgMjU1Ljc1IDI1LjQ4OTZDMjU3LjQyIDI1LjQ4OTYgMjU4Ljc2IDI0LjIwOTggMjU4Ljc2IDIyLjM5OThDMjU4Ljc2IDIwLjU4OTkgMjU3LjQyIDE5LjMwOTkgMjU1Ljc1IDE5LjMwOTlaIiBmaWxsPSIjMEMwRDBEIi8+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNDQxLjU5IDIwLjQyMDNDNDQyLjQ2IDIwLjQyMDMgNDQzLjAzIDIwLjkyOTkgNDQzLjAzIDIxLjc3OTdDNDQzLjAzIDIyLjM4OTYgNDQyLjc0IDIyLjgwMDMgNDQyLjI4IDIyLjk2MDNMNDQzLjE3IDI0LjMxOTdINDQxLjk1TDQ0MS4yIDIzLjA4MDVINDQwLjg1MUw0NDAuODYgMjMuMDkwMlYyNC4zMzA1SDQzOS43NlYyMC40MjAzSDQ0MS41OVpNNDQxLjQ3IDIxLjM0MDJINDQwLjg2VjIyLjIxMDNINDQxLjQ3QzQ0MS44IDIyLjIxMDMgNDQxLjk4IDIyLjA0OTcgNDQxLjk4IDIxLjc3OTdDNDQxLjk4IDIxLjUwOTggNDQxLjggMjEuMzMwNSA0NDEuNDcgMjEuMzMwNVYyMS4zNDAyWiIgZmlsbD0iIzBDMEQwRCIvPiA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQ0MS4yOCAxOC42ODAxQzQ0My4yOSAxOC42ODAyIDQ0NC45NiAyMC4yNSA0NDQuOTYgMjIuMzk5OEM0NDQuOTYgMjQuNTQ5NyA0NDMuMjkgMjYuMTE5NCA0NDEuMjggMjYuMTE5NUM0MzkuMjcgMjYuMTE5NSA0MzcuNjAxIDI0LjU0OTggNDM3LjYwMSAyMi4zOTk4QzQzNy42MDEgMjAuMjQ5OSA0MzkuMjcgMTguNjgwMSA0NDEuMjggMTguNjgwMVpNNDQxLjI4IDE5LjMwOTlDNDM5LjYxIDE5LjMwOTkgNDM4LjI3MSAyMC41ODk5IDQzOC4yNzEgMjIuMzk5OEM0MzguMjcxIDI0LjIwOTggNDM5LjYxIDI1LjQ4OTYgNDQxLjI4IDI1LjQ4OTZDNDQyLjk1IDI1LjQ4OTUgNDQ0LjI5IDI0LjIwOTcgNDQ0LjI5IDIyLjM5OThDNDQ0LjI5IDIwLjU5IDQ0Mi45NSAxOS4zMSA0NDEuMjggMTkuMzA5OVoiIGZpbGw9IiMwQzBEMEQiLz4gPHBhdGggZD0iTTQwMi4wNyAxNC41MDkyQzQwMy4xNSAxNC41MDkzIDQwNC4wMSAxNS40MTk4IDQwNC4wMSAxNi40NDk2QzQwNC4wMSAxNy41Mjk1IDQwMy4xNSAxOC4zODk5IDQwMi4wNyAxOC4zOUM0MDAuOTkgMTguMzkgNDAwLjEzIDE3LjUzOTYgNDAwLjEzIDE2LjQ0OTZDNDAwLjEzIDE1LjQxOTggNDAwLjk5IDE0LjUwOTIgNDAyLjA3IDE0LjUwOTJaIiBmaWxsPSIjMEMwRDBEIi8+IDwvc3ZnPiA=' />
+                        <h1>SIGNATURE CERTIFICATE</h1>
+                    </div>
+                </td>
+                <td
+                    style="width: 40%; vertical-align: top; text-align: right; border: none; padding: 10px 10px 20px 0;">
+                    <table id="reference_number" style="border-collapse: collapse; margin-left: auto; margin-right: 0;">
+                        <tr>
+                            <td class="qr-content">
+                                <img class='qr-code' alt='QR Code' src='data:image/png;base64,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' style='width: 100px; height: 100px; border: 1px solid #cccccc; display: block;' />
+                            </td>
+                            <td class="text-content">
+                                <h2>REFERENCE NUMBER</h2>
+                                <p>9C04C235</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table class="details">
+        <thead>
+            <tr>
+                <td style="font-size: 13px; font-weight: bold; text-transform: uppercase;">TRANSACTION DETAILS</td>
+                <td style="font-size: 13px; font-weight: bold; text-transform: uppercase;">DOCUMENT DETAILS</td>
+            </tr>
+        </thead>
+        <tr class="section">
+            <td class="transaction-details">
+                <table class="inner-table">
+                    <tr>
+                        <td class="label">Reference Number</td>
+                    </tr>
+                    <tr>
+                        <td class="value">9C04C235</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Transaction Type</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Signature</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Sent At</td>
+                    </tr>
+                    <tr>
+                        <td class="value">10/22/2025 07:54 AM EST</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Executed At</td>
+                    </tr>
+                    <tr>
+                        <td class="value">
+10/23/2025 07:54 AM EST                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Identity Method</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Email</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Distribution Method</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Email</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Signed Checksum</td>
+                    </tr>
+                    <tr>
+                        <td class="value small-checksum"
+                            style="text-align: left; font-size: 9px; background-color: #f9f9f9; padding: 4px; font-family: Courier, sans-serif;">
+                            XYZ987654werfsdfv dkfvnsfv dkfcv dv ?? "N/A"</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Signer Sequencing</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Enabled</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Document Passcode</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Disabled</td>
+                    </tr>
+                </table>
+            </td>
+            <td class="document-details">
+                <table class="inner-table">
+                    <tr>
+                        <td class="label">Document Name</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Sample Document</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Filename</td>
+                    </tr>
+                    <tr>
+                        <td class="value">sample.pdf</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Pages</td>
+                    </tr>
+                    <tr>
+                        <td class="value">3 pages</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Content Type</td>
+                    </tr>
+                    <tr>
+                        <td class="value">application/pdf</td>
+                    </tr>
+                    <tr>
+                        <td class="label">File Size</td>
+                    </tr>
+                    <tr>
+                        <td class="value">1 MB</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Original Checksum</td>
+                    </tr>
+                    <tr>
+                        <td class="value small-checksum">ABCDEF123456</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <h2 style="font-size: 21px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">SIGNERS</h2>
+    <table class="signers">
+        <thead>
+            <tr>
+                <td class="signer-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">SIGNER
+                </td>
+                <td class="esignature-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">
+                    E-SIGNATURE</td>
+                <td class="events-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">EVENTS
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>
+                        <table class="inner-table">
+                            <tr>
+                                <td class="label">Name</td>
+                            </tr>
+                            <tr>
+                                <td class="value">John Doe</td>
+                            </tr>
+                                <tr>
+                                    <td class="label">Email</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">john@example.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Signer Sequence</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">1</td>
+                                </tr>
+                            <tr>
+                                <td class="label">Components</td>
+                            </tr>
+                            <tr>
+                                <td class="value">1</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="inner-table">
+                            <tr>
+                                <td class="label">Status</td>
+                            </tr>
+                            <tr>
+                                <td class="value">Signed</td>
+                            </tr>
+                                <tr>
+                                    <td class="label">Multi-factor Digital Fingerprint Checksum</td>
+                                </tr>
+                                <tr>
+                                    <td class="value small-checksum">f53cdbb5f9a4d8e11bf11161202b945</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">IP Address</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">192.168.1.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Device</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">Chrome on Mac</td>
+                                </tr>
+                                    <tr>
+                                        <td class="label">Drawn Signature</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="value">
+                                            <table class="nested-signature">
+                                                <tr>
+                                                    <td colspan="2" style="text-align: center; padding: 5px;">
+                                                        <img class="signature" src="signature.png" alt="SIG123"
+                                                            width="100" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">Signature Reference ID</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="value">REF123</td>
+                                                </tr>
+                                                    <tr>
+                                                        <td class="label">Signature Biometric Count</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="value">1</td>
+                                                    </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="inner-table">
+                            <tr>
+                                <td class="label">Viewed At</td>
+                            </tr>
+                            <tr>
+                                <td class="value">
+10/22/2025 07:54 AM EST                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Identity Authenticated At</td>
+                            </tr>
+                            <tr>
+                                <td class="value">
+10/22/2025 07:54 AM EST                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Signed At</td>
+                            </tr>
+                            <tr>
+                                <td class="value">
+10/23/2025 07:54 AM EST                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+    <h2 style="font-size: 21px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">AUDITS</h2>
+    <table class="audits">
+        <thead>
+            <tr>
+                <td class="timestamp-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">
+                    TIMESTAMP</td>
+                <td style="font-size: 13px; font-weight: bold; text-transform: uppercase;">AUDIT</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>10/22/2025 07:54 AM EST</td>
+                <td class="payload">Anshul Gour (anshul.gour@progress.com) created document 'Sample_Sharefile_Pdf.pdf' on Safari via Mac from287687</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

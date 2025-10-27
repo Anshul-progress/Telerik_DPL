@@ -1,0 +1,50 @@
+[
+      {
+    "Type": "Text",
+    "X": 0.10,
+    "Y": 0.40,
+    "Height": 0.05,
+    "Width": 0.50,
+    "Value": "Right Aligned Sample",
+    "FontSize": 14,
+    "Multiline": false,
+    "Transparent": true,
+    "TextAlign": "Right",
+    "Page": 3,
+    "FontStyle": "Serif",
+    "Id": "t2",
+    "FitTextToBoxSize": false
+  },
+  {
+    "Type": "Text",
+    "X": 0.15,
+    "Y": 0.45,
+    "Height": 0.08,
+    "Width": 0.60,
+    "Value": "Left Aligned\nMultiline Example 1",
+    "FontSize": 12,
+    "Multiline": true,
+    "Transparent": false,
+    "TextAlign": "Left",
+    "Page": 2,
+    "FontStyle": "SansSerif",
+    "Id": "t3",
+    "FitTextToBoxSize": true
+  },
+  {
+    "Type": "Text",
+    "X": 0.20,
+    "Y": 0.50,
+    "Height": 0.10,
+    "Width": 0.55,
+    "Value": "Left Aligned\nMultiline Example 2",
+    "FontSize": 16,
+    "Multiline": true,
+    "Transparent": true,
+    "TextAlign": "Left",
+    "Page": 1,
+    "FontStyle": "Monospace",
+    "Id": "t4",
+    "FitTextToBoxSize": false
+  }
+]

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Reporting.AI.Microsoft.Extensions.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Reporting.AI.Microsoft.Extensions.Abstractions.Client">
+            <summary>
+            A client that provides AI communication services by implementing the IClient and IAddContext interfaces.
+            </summary>
+            <remarks>
+            This class uses the Microsoft.Extensions.AI.IChatClient interface to send and receive messages from an AI service.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Reporting.AI.Microsoft.Extensions.Abstractions.Client.Model">
+            <summary>
+            Gets the AI model name associated with the current instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Reporting.AI.Microsoft.Extensions.Abstractions.Client.#ctor(Microsoft.Extensions.AI.IChatClient,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Reporting.AI.Microsoft.Extensions.Abstractions.Client"/> class.
+            </summary>
+            <param name="chatClient">The underlying IChatClient implementation that handles the actual AI communication.</param>
+        </member>
+        <member name="M:Telerik.Reporting.AI.Microsoft.Extensions.Abstractions.Client.GetResponseAsync(System.Collections.Generic.IReadOnlyCollection{Telerik.Reporting.AI.IMessage},System.Threading.CancellationToken)">
+            <summary>
+            Sends a query to the AI service and returns the response.
+            </summary>
+            <param name="query">The collection of messages representing the query.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>A task containing the collection of response messages from the AI service.</returns>
+            <remarks>
+            This method adds the query messages to the conversation thread, forwards the thread to the underlying
+            chat client, and then adds the response messages to the thread as well.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Reporting.AI.Microsoft.Extensions.Abstractions.Client.Dispose">
+            <summary>
+            Releases all resources used by the client.
+            </summary>
+            <remarks>
+            Clears the conversation thread and disposes the underlying chat client.
+            </remarks>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,180 @@
+/* Certificate Styles */
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | Public domain */
+html, body, div, span, applet, object, iframe,
+ h1,h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+
+a { text-decoration:none; }
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; font-family:"Ubuntu", Helvetica, Arial, sans-serif; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+table { border-collapse:collapse; border-spacing:0; font-size:16px; width:100%; margin-bottom:17px; }
+
+table thead td { font-weight:bold; font-size:13px; text-transform:uppercase; padding:4px; background-color:#dfdfdf; }
+
+table tbody td { font-size:13px; padding:4px; }
+
+/* Inner table styles - replaces dl/dt/dd */
+table.inner-table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+table.inner-table tr {
+    border: none;
+}
+
+table.inner-table td.label {
+    font-weight: bold;
+    width: 45%;
+    padding: 0 8px 2px 0;
+    vertical-align: top;
+    border: none;
+    text-align: left;
+}
+
+table.inner-table td.value {
+    width: 55%;
+    padding: 0 0 7px 0;
+    vertical-align: top;
+    border: none;
+    text-align: left;
+}
+
+table.inner-table td.value.small-checksum {
+    font-size: 9px;
+    background-color: #f9f9f9;
+    padding: 4px;
+    text-align: left;
+    font-family: Courier, sans-serif;
+    
+}
+
+/* Nested signature table */
+table.nested-signature {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    margin: 10px 0 0 10px;
+  
+    font-size: 13px;
+}
+
+table.nested-signature tr {
+    border: none;
+    
+}
+
+table.nested-signature td.label {
+    font-weight: bold;
+    width: 50%; 
+    padding: 2px 5px 2px 0;
+    vertical-align: top;
+    border: none;
+}
+
+table.nested-signature td.value {
+    width: 50%;
+   padding: 2px 0 2px 5px;
+    vertical-align: top;
+    border: none;
+}
+
+/* Audits table - smaller font */
+table.audits td {
+    font-size: 11px;
+}
+
+table.audits td.timestamp-col {
+    font-size: 11px;
+}
+
+table.audits td.payload { 
+    line-height:15px;
+    font-size: 11px;
+}
+
+h2 { font-size:21px; font-weight:bold; text-transform:uppercase; display:block; letter-spacing:2; margin-bottom:10px; }
+
+#logo { background-color:#fff; }
+#logo svg { display:block; width:330px; height:85px; margin-right:10px;  }
+#logo h1 { font-size:20px; text-transform:uppercase; font-weight:bold; display:block; letter-spacing:2; margin-top:15px; }
+
+.header { margin-bottom:10px; margin-top:10px; }
+
+/* Reference Number Section - Table-based for PDF compatibility */
+table#reference_number {
+    padding: 0;
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 0px;
+    border-collapse: collapse;
+}
+
+table#reference_number tr {
+    border: none;
+}
+
+table#reference_number td.qr-content {
+    width: 100px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: center;
+     border-top: 1px solid #040404;
+    border-right:none ;
+    border-bottom:1px solid #040404;
+    border-left:1px solid #040404;
+}
+
+table#reference_number td.text-content {
+    width: 290px;
+    padding-left: 5px;
+    vertical-align: middle;
+    text-align: left;
+    border-top: 1px solid #040404;
+    border-right: 1px solid #040404;
+    border-bottom:1px solid #040404;
+    border-left:none;
+}
+
+table#reference_number img.qr-code {
+    width: 100px;
+    height: 100px;
+    display: block;
+    border: 1px solid #cccccc;
+}
+
+table#reference_number h2 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table#reference_number p {
+    margin: 0;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.small-checksum { font-size:9px; background-color:#f9f9f9; padding:4px;  text-align:left; font-family:Courier, sans-serif; }
+
+img.signature { border:1px solid #f2f2f2; }

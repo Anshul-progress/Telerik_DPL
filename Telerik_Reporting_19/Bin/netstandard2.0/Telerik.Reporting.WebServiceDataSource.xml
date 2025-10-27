@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Reporting.WebServiceDataSource</name>
+    </assembly>
+    <members>
+        <member name="M:Telerik.Reporting.Processing.WebServiceDataSource.JsonDataContext.CanGetValue(System.String)">
+            <summary>
+            Do not attempt to get value if the requested field name is the GUID of the MergedDataNode eval key.
+            TODO: Consider inheriting from another context which excludes certain fields, in case we add another fieldName like MergedDataNode.
+                  We cannot use FieldsDataContext because it enforces using fields from a predefined set, and JsonDataObjects might not contain all the fields in every member.
+            </summary>
+            <param name="fieldName"></param>
+            <returns>False if the field name is the EvalKey's GUID. Otherwise, true.</returns>
+        </member>
+    </members>
+</doc>

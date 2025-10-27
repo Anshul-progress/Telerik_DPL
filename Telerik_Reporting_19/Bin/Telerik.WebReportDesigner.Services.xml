@@ -1,0 +1,3147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.WebReportDesigner.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.WebReportDesigner.Services.Controllers.ControllerHelper">
+            <summary>
+            Helper class shared between .Core and .Full implementations.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ControllerHelper.DeserializeReportItemModel(System.IO.Stream)">
+            <summary>
+            Deserializes a JSON-serialized model that contains a report definition and an Item string.
+            The Item string can be an expression to be evaluated, or an item name to be rendered.
+            </summary>
+            <param name="stream">Readable stream from the current Request.Body.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Controllers.ControllerHelper.DeserializedReportItemModel">
+            <summary>
+            Model containing the deserialized Report instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Controllers.ReportItemData">
+            <summary>
+            Model that contains JSON-serialized report definition and an Item string.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Controllers.ReportItemData.Report">
+            <summary>
+            JSON-serialized report definition.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Controllers.ReportItemData.Item">
+            <summary>
+            String field. Can be expression, item name, etc.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Controllers.ReportItemDefinitionData">
+            <summary>
+            Model that contains JSON-serialized report item definition and an item name string.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Controllers.ReportItemDefinitionData.Item">
+            <summary>
+            JSON-serialized report item definition.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Controllers.ReportItemDefinitionData.ItemName">
+            <summary>
+            String field with the name of the item.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase">
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET Core application.
+            </summary>
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET Core application.
+            </summary>
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET application.
+            </summary>
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET Core application.
+            </summary>
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET Core application.
+            </summary>
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET Core application.
+            </summary>
+            <summary>
+            Base API controller for exposing the Telerik Report Designer Service in an ASP.NET application.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.Evaluate(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Evaluates an expression against the report expression context.
+            </summary>
+            <returns>A string, representing the evaluating expression.</returns>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.ReportDesignerServiceConfiguration">
+            <summary>
+            Gets or sets the configuration of the web report designer service.
+            </summary>
+            <remarks>
+            When inheriting the ReportDesignerControllerBase controller basic configuration is needed.
+            Provide an object implementing the <see cref="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration"/>
+            in order to configure the service. This should be done in the
+            controllers' constructor using static object to preserve the configuration
+            between requests or using dependency injection.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration"/>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration"/>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateStorageService(Telerik.WebReportDesigner.Services.IDefinitionStorage,Telerik.WebReportDesigner.Services.IReportManager)">
+            <summary>
+            Creates an IReportStorageService instance. Overridden in ReportServer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetTypeSchema(System.String)">
+            <summary>
+            Gets the type schema for the requested type.
+            </summary>
+            <param name="typeName">The name of the type.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetTypeSchemas(System.String[])">
+            <summary>
+            Gets a collection of type schemas for the requested types.
+            </summary>
+            <param name="typeNames">A JSON array containing the type names.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDefaultComponent(System.String)">
+            <summary>
+            Gets the component's default property store.
+            </summary>
+            <param name="typeName">The name of the component type.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.ListFonts">
+            <summary>
+            Lists all available fonts.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.PaperSizes">
+            <summary>
+            Lists all available paper kinds with their size.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CultureContext">
+            <summary>
+            Returns a set with culture-based properties used in serialization.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDesignerResource(System.String,System.String)">
+            <summary>
+            Gets an embedded report viewer resource.
+            </summary>
+            <param name="folder">The folder in which the resource is.</param>
+            <param name="resourceName">The name of the resource.</param>
+            <returns>A System.Web.Http.IHttpActionResult containing the requested resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetComponentBindingPaths(Telerik.WebReportDesigner.Services.Controllers.ReportItemDefinitionData)">
+            <summary>
+            Gets the component's binding paths available values.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetExpressionBuilderHierarchy">
+            <summary>
+            Returns a collection of all static expression builder nodes.
+            </summary>
+            <returns>A System.Web.Http.IHttpActionResult containing the hierarchy.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.ExpressionBuilderParametersHierarchy(System.Object)">
+            <summary>
+            Returns a collection of all parameters.
+            </summary>
+            <returns>A System.Web.Http.IHttpActionResult containing the parameters collection.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetWizardStyleSheets(System.String)">
+            <summary>
+            Returns a list of design-time stylesheets.
+            </summary>
+            <param name="typeName">The design-time item type name.</param>
+            <returns>A System.Web.Http.IHttpActionResult containing the wizard style sheets.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetReportBytes(System.String,Telerik.Reporting.IReportDocument)">
+            <summary>
+            For internal use only
+            </summary>
+            <param name="definitionId">report definition identifier</param>
+            <param name="report">report instance</param>
+            <returns>The bytes of the serialized report.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetReportDocument(System.String,System.Byte[])">
+            <summary>
+            Gets a the report document object by its id and bytes.
+            </summary>
+            <param name="definitionId">The report definition identifier.</param>
+            <param name="definition">The report definition in binary format.</param>
+            <returns>IReportDocument.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateJsonResponse(System.Object)">
+            <summary>
+            Creates a JSON response from an object.
+            </summary>
+            <param name="value">The object instance.</param>
+            <returns>A System.Web.Http.IHttpActionResult containing the Json-serialized response.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateJsonResponse(System.String)">
+            <summary>
+            Creates a JSON response from a string value.
+            </summary>
+            <param name="value">The string value.</param>
+            <returns>A System.Web.Http.IHttpActionResult containing the Json-serialized response.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateNotFoundResultWithText(System.String)">
+            <summary>
+            Creates a JSON response for a NotFound result.
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateBadRequestResultWithText(System.String)">
+            <summary>
+            Utility function to generate result from text message.
+            </summary>
+            <param name="message">The message to be used.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateResponse(System.Object,System.Net.HttpStatusCode)">
+            <summary>
+            Utility function to generate a response with provided value and status code.
+            </summary>
+            <param name="value"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.File(System.Byte[],System.String,System.String)">
+            <summary>
+            Returns a File action result with the provided contents.
+            </summary>
+            <param name="content"></param>
+            <param name="contentType"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetResourceCore(System.String,System.String,System.Type)">
+            <summary>
+            Retrieve resources.
+            </summary>
+            <param name="folder">The folder in which to search for serialized resource.</param>
+            <param name="resourceName">The name of the resource.</param>
+            <param name="type">The type of the resource (optional).</param>
+            <returns>A System.Web.Http.IHttpActionResult containing the response.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateResourceResolver">
+            <summary>
+            Creates a ResourceResolver instance using the storage from the current configuration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateSharedDataSourceResolver">
+            <summary>
+            Creates a SharedDataSourceResolver instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetTypes">
+            <summary>
+            Returns a list of all available types.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetMembers(Telerik.WebReportDesigner.Services.Models.TypeInfoWithFilter)">
+            <summary>
+            Returns a list of all data members for the specified type.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDataModel(Telerik.WebReportDesigner.Services.Models.ObjectDataSourceInfo)">
+            <summary>
+            Returns the data fields schema for the specified object data source.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetTypeMeasures(Telerik.WebReportDesigner.Services.Models.TypeInfo)">
+            <summary>
+            Returns the data fields schema for the specified type. Used for nested measures.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.Preview(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Returns a preview of the object data source data.
+            </summary>
+            <param name="dataSourceInfo">The object data source model.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDeniedPermissions">
+            <summary>
+            Gets all denied permissions.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderGraph(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a graph item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderMap(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a map item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderBarcode(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a barcode item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderHtmlTextBox(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a HtmlTextBox item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderShape(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a Shape item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderCrossSectionItem(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a RenderCrossSectionItem item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderCheckBox(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a CheckBox item and returns the rendered HTML.
+            </summary>
+            <returns>PNG bytes</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderPictureBox(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a PictureBox item to PNG and returns the rendered image.
+            </summary>
+            <returns>PNG bytes</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderRadialGauge(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a Radial Gauge item and returns the rendered image.
+            </summary>
+            <returns>PNG bytes</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenderLinearGauge(Telerik.WebReportDesigner.Services.Controllers.ReportItemData)">
+            <summary>
+            Renders a Linear Gauge item and returns the rendered image.
+            </summary>
+            <returns>PNG bytes</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetFolderContents(System.String)">
+            <summary>
+            A list of all available resource files and folders including their details
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.FolderContentsResponseModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.FolderHasContents(System.String)">
+            <summary>
+            Determines if a folder has contents
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.FolderHasContentsResponseModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetFolderModel(System.String)">
+            <summary>
+            Gets the folder model on a given URI.
+            </summary>
+            <param name="uri">The URI of the folder.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetFolderModelByName(System.String)">
+            <summary>
+            Gets the folder model on a given path using Name identifiers
+            </summary>
+            <param name="name">The full path to the folders with Name identifiers.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.FolderNameExists(System.String)">
+            <summary>
+            Determines if a folder exists by using its path with Name identifiers.
+            </summary>
+            <param name="name">The full path to the folders with Name identifiers.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.FolderHasContentsResponseModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.FolderExists(System.String)">
+            <summary>
+            Determines if a folder exists by using its URI.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.FolderHasContentsResponseModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateFolder(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates the given resource folder
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.CreateFolderModel"/> with the required data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteFolder(System.String)">
+            <summary>
+            Deletes the given resource folder
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.MoveFolder(Telerik.WebReportDesigner.Services.Models.MoveFolderModel)">
+            <summary>
+            Moves the given resource folder
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.MoveFolderModel"/> with the required data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenameFolder(Telerik.WebReportDesigner.Services.Models.RenameFolderModel)">
+            <summary>
+            Renames the given resource folder
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.RenameFolderModel"/> with the required data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetAllByExtension(System.String)">
+            <summary>
+            List all available resource files that match the specified search extension in the resource storage.
+            </summary>
+            <param name="extension">The resources' extension.</param>
+            <returns>An array of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.Get(System.String)">
+            <summary>
+            Get the content of a resource file.
+            </summary>
+            <param name="resourceName">The resource file name.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetResourceModel(System.String)">
+            <summary>
+            Gets the resource model for the given resource.
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetResourceModelByName(System.String)">
+            <summary>
+            Gets the resource model for the given resource.
+            </summary>
+            <param name="name">The unique resource identifier (URI)</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetRawResource(System.String)">
+            <summary>
+            Get the content of a resource file.
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetRawResourceByName(System.String)">
+            <summary>
+            Get the content of a resource file using path with Name identifiers.
+            </summary>
+            <param name="name">The full path to the resource with Name identifiers.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetResourceFile(System.String)">
+            <summary>
+            Get the content of a resource file by its URI.
+            </summary>
+            <param name="uri">The URI to the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.ResourceNameExists(System.String)">
+            <summary>
+            Determines if a resource with the provided name exists.
+            </summary>
+            <param name="name">The full path to the resource using Name identifiers.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.ResourceUriExists(System.String)">
+            <summary>
+            Determines if a resource with the provided URI exists.
+            </summary>
+            <param name="uri">The URI of the resource.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.Save(System.String)">
+            <summary>
+            Creates a new resource.
+            </summary>
+            <param name="resourceName">The resource file name.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SaveResource(Telerik.WebReportDesigner.Services.Models.SaveResourceModel)">
+            <summary>
+            Creates a new resource.
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.SaveResourceModel"/> with the required data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.OverwriteResource(Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel)">
+            <summary>
+            Overwrites an existing resource
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel"/> with the required datan</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenameResource(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames an existing resource
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.RenameResourceModel"/> with the required data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.MoveResource(Telerik.WebReportDesigner.Services.Models.MoveResourceModel)">
+            <summary>
+            Moves an existing resource
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.MoveResourceModel"/> with the required data</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteResource(System.String)">
+            <summary>
+            Deletes an existing resource
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SearchResources(Telerik.WebReportDesigner.Services.Models.SearchResourcesModel)">
+            <summary>
+            Searches for resources and resource folders
+            </summary>
+            <param name="model">The <see cref="T:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel"/> with the required data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SearchResourceResponseModel"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.PreviewJson(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Returns a preview of the contents of a json file.
+            </summary>
+            <param name="dataSourceInfo">The JSON data source model.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.PreviewCsv(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Returns a preview of the contents of a csv file.
+            </summary>
+            <param name="dataSourceInfo">The CSV data source model.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.PreviewWebServiceData(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Returns a preview of the web service data source.
+            </summary>
+            <param name="dataSourceInfo">The Web service data source model.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.HandledResourceResult``1(Telerik.WebReportDesigner.Services.Result{``0},System.Func{``0,System.Web.Http.IHttpActionResult})">
+            <summary>
+            Internal use only.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="result"></param>
+            <param name="onSuccess"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SharedDataSourceService">
+            <summary>
+            Gets the SharedDataSource sercvice instance.
+            Internal use only.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetSharedDataSourceFolderContents(System.String)">
+            <summary>
+            A list of all available SharedDataSource files including their details
+            </summary>
+            <param name="uri"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateSharedDataSourceFolder(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates the given folder (<see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.Name"/>) in <see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.ParentUri"/>
+            </summary>
+            <param name="model">The model containing the create operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenameSharedDataSourceFolder(Telerik.WebReportDesigner.Services.Models.RenameFolderModel)">
+            <summary>
+            Renames the given folder at <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.Name"/>, including all of its contents (similar to the <see cref="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.MoveFolder(Telerik.WebReportDesigner.Services.Models.MoveFolderModel)"/> method)
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteSharedDataSourceFolder(System.String)">
+            <summary>
+            Deletes the given folder at <paramref name="uri"/>
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SharedDataSourceFolderNameExists(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="name"/> exists.
+            </summary>
+            <param name="name">The path to the folder using Name identifiers.</param>
+            <returns><see langword="true"/>, if the folder exists, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SharedDataSourceFolderExists(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="uri"/> exists.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder.</param>
+            <returns><see langword="true"/>, if the folder exists, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetSharedDataSource(System.String)">
+            <summary>
+            Gets the JSON-serialized representation of the SharedDataSource resource by its URI.
+            </summary>
+            <param name="uri">The URI of the SharedDataSource.</param>
+            <returns>JSON string, representing the underlying DataSource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetSharedDataSourceModel(System.String)">
+            <summary>
+            Gets the SharedDataSource model by its URI.
+            </summary>
+            <param name="uri">The URI of the SharedDataSource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SaveSharedDataSourceModel(Telerik.WebReportDesigner.Services.Models.SaveResourceModel)">
+            <summary>
+            Creates a new resource using the JSON data from Request body.
+            </summary>
+            <param name="model">The resource file name and parent folder URI.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteSharedDataSource(System.String)">
+            <summary>
+            Deletes the SharedDataSource resource.
+            </summary>
+            <param name="uri">The URI of the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenameSharedDataSource(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames the SharedDataSource resource.
+            </summary>
+            <param name="model">The model containing renaming operation data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetRawSharedDataSource(System.String)">
+            <summary>
+            Gets the ShareDataSource resource raw data.
+            </summary>
+            <param name="uri">The URI of the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.UploadRawSharedDataSource(Telerik.WebReportDesigner.Services.Models.SaveResourceModel)">
+            <summary>
+            Saves the ShareDataSource resource using the raw string data from Request body.
+            </summary>
+            <param name="model">The model containing save operation data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SharedDataSourceExists(System.String)">
+            <summary>
+            Determines if a SharedDataSource resource with the provided URI exists. 
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the SharedDataSource resource.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CanConnect(Telerik.Reporting.Data.Schema.ConnectionInfo)">
+            <summary>
+            Retrieves the connection availability for a specified connection string.
+            </summary>
+            <param name="connectionInfo">Connection model</param>
+            <returns>Boolean result.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetConnectionsPermissions">
+            <summary>
+            Gets the connections permissions.
+            </summary>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.ConnectionsPermissions"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.AddConnection(Telerik.Reporting.Data.Schema.ConnectionInfo)">
+            <summary>
+            Add the connection to the connection storage.
+            </summary>
+            <param name="connectionInfo">Connection model</param>
+            <returns>An empty result or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDataConnections">
+            <summary>
+            Gets a collection of all data connections.
+            </summary>
+            <returns><see cref="T:Telerik.Reporting.Data.Schema.ConnectionInfo"/> array.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetProceduresSchema(Telerik.Reporting.Data.Schema.ConnectionInfo)">
+            <summary>
+            Retrieves the procedures for the specified data connection.
+            </summary>
+            <param name="input">Connection model</param>
+            <returns>The procedures for the specified data connection or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDbSchema(Telerik.Reporting.Data.Schema.SchemaRestrictionsInfo)">
+            <summary>
+            Retrieves the database schema for the specified data connection.
+            </summary>
+            <param name="input">Connection model.</param>
+            <returns>The database schema for the specified data connection or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GenerateSqlStatement(Telerik.Reporting.Data.Schema.GenerateSqlInfo)">
+            <summary>
+            Generates SQL statement for the specified query designer model and data connection.
+            </summary>
+            <param name="generateInfo">Generate SQL info model.</param>
+            <returns>Generated SQL statement or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetDataConnectionProviders">
+            <summary>
+            Gets a collection of all DB providers.
+            </summary>
+            <returns><see cref="T:Telerik.Reporting.Data.Schema.DbProviderInfo"/> array.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetSqlParameters(Telerik.Reporting.Data.Schema.QueryInfoWithParameters)">
+            <summary>
+            Retrieves a collection of all SQL parameters.
+            </summary>
+            <returns>A collection of all SQL parameters or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetSqlPreviewData(Telerik.Reporting.Data.Schema.PreviewDataInfoWithParameters)">
+            <summary>
+            Retrieves a preview of the sql data
+            </summary>
+            <returns>A preview of the sql data or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetSqlDataModel(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Retrieves the fields data model for the specified data connection.
+            </summary>
+            <returns>The fields data model for the specified data connection or errors, if any have occurred</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetReport(System.String)">
+            <summary>
+            Gets the report definition from the root folder.
+            </summary>
+            <param name="reportId">The report identifier.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetReportAsync(System.String)">
+            <summary>
+            Gets the report definition.
+            </summary>
+            <param name="uri">The report identifier.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.ReportExistsAsync(System.String)">
+            <summary>
+            Determines if a report definition exists by its URI.
+            </summary>
+            <param name="uri">The report URI.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SaveReport(System.String,System.Object)">
+            <summary>
+            Creates a new report or updates an existing report.
+            </summary>
+            <param name="reportId">The report identifier.</param>
+            <param name="definition">The report definition in JSON format.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.SaveReportByUriAsync(System.String,System.Object)">
+            <summary>
+            Creates a new report or updates an existing report.
+            </summary>
+            <param name="uri">The report identifier.</param>
+            <param name="definition">The report definition in JSON format.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteReport(System.String)">
+            <summary>
+            Deletes a report from the root folder.
+            </summary>
+            <param name="reportId">The report identifier.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteReportAsync(System.String)">
+            <summary>
+            Deletes a report from the provided URI.
+            </summary>
+            <param name="uri">The report identifier.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenameReportAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames a report from <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.Name"/>
+            </summary>
+            <param name="report">The model containing the rename operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/> of the renamed report</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DownloadReport(System.String)">
+            <summary>
+            Returns the report from the root folder as a file.
+            </summary>
+            <param name="uri">The report identifier for which report to download.</param>
+            <returns>The report as a .trdp or .trdx file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DownloadReportAsync(System.String)">
+            <summary>
+            Returns the report as a file.
+            </summary>
+            <param name="uri">The report identifier for which report to download.</param>
+            <returns>The report as a .trdp or .trdx file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.UploadReportAsync(System.String)">
+            <summary>
+            Receive a report in file format and saves it to storage
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetReportsInFolder(System.String)">
+            <summary>
+            Lists the first-level folders and report definitions at the provided folder URI.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.CreateReportsFolder(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates the given folder (<see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.Name"/>) in <see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.ParentUri"/>
+            </summary>
+            <param name="model">The model containing the create operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.GetReportsFolderModel(System.String)">
+            <summary>
+            Gets the folder model on a given URI.
+            </summary>
+            <param name="uri">The URI of the folder.</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> or <see langword="null"/> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.DeleteReportsFolder(System.String)">
+            <summary>
+            Deletes the given folder at <paramref name="uri"/>
+            </summary>
+            <param name="uri">The unique report folder identifier (URI)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Controllers.ReportDesignerControllerBase.RenameReportsFolder(Telerik.WebReportDesigner.Services.Models.RenameFolderModel)">
+            <summary>
+            Renames the given folder at <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.Name"/>, including all of its content
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly renamed folder</returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.WebApi.ReportDesignerControllerConfiguration">
+            <summary>
+            Represents the report controller configuration.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.WebApi.ReportDesignerControllerConfiguration.RegisterRoutes(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers report controller's routes in the application configuration.
+            </summary>
+            <param name="config">The application configuration to add the routes to</param>
+            <remarks>Registers report controller's routes with the default "api" first path segment.</remarks>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.WebApi.ReportDesignerControllerConfiguration.RegisterRoutes(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Registers report controller's routes in the application configuration.
+            </summary>
+            <param name="config">The application configuration to add the routes to</param>
+            <param name="firstPathSegment">The first path segment to include in the route template. 
+            For example, "api" is the default literal path segment in the "api/{controller}" route template.
+            Use this overload and pass a unique path segment (e.g. "reportingapi") to avoid collisions with other Web API services.
+            Then modify the report viewer client to use the custom service URL address.
+            </param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ReportServerReportDesignerServiceConfiguration">
+            <summary>
+            Implementation of the <see cref="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration"/> interface that is used by ReportServer.462
+            Internal use only.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.ReportServerReportDesignerServiceConfiguration.ResourceResolver">
+            <summary>
+            The ResourceResolver instance created by the ReportServer instance.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.ReportServerReportDesignerServiceConfiguration.SharedDataSourceResolver">
+            <summary>
+            The SharedDataSourceResolver instance created by the ReportServer instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ConnectionsPermissions">
+            <summary>
+            Represents a container for connection permissions
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ConnectionsPermissions.CanAddSharedConnection">
+            <summary>
+            Gets or sets a value indicating whether the user can add shared connection
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ConnectionsPermissions.CanEmbeddedConnection">
+            <summary>
+            Gets or sets a value indicating whether the user can add embedded connection
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.InvalidFolderNameException">
+            <summary>
+            The exception that is thrown when a folder name is not valid
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidFolderNameException.#ctor">
+            <summary>
+            Initializes a new instance of the InvalidFolderNameException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidFolderNameException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InvalidFolderNameException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidFolderNameException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the InvalidFolderNameException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidFolderNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the InvalidFolderNameException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.InvalidSharedDataSourceNameException">
+            <summary>
+            The exception that is thrown when the name of the SharedDataSource is not valid.  
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidSharedDataSourceNameException.#ctor">
+            <summary>
+            Initializes a new instance of the InvalidSharedDataSourceNameException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidSharedDataSourceNameException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InvalidSharedDataSourceNameException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidSharedDataSourceNameException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the InvalidSharedDataSourceNameException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidSharedDataSourceNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the InvalidSharedDataSourceNameException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.InvalidReportNameException">
+            <summary>
+            The exception that is thrown when a report name is not valid.  
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidReportNameException.#ctor">
+            <summary>
+            Initializes a new instance of the InvalidReportNameException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidReportNameException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InvalidReportNameException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidReportNameException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the InvalidReportNameException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidReportNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the InvalidReportNameException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.InvalidResourceNameException">
+            <summary>
+            The exception that is thrown when a resource name is not valid.  
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidResourceNameException.#ctor">
+            <summary>
+            Initializes a new instance of the InvalidResourceNameException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidResourceNameException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InvalidResourceNameException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidResourceNameException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the InvalidResourceNameException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.InvalidResourceNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the InvalidResourceNameException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.MoveResourceFolderInsideItselfException">
+            <summary>
+            The exception that is thrown when moving a resource folder would result in it being moved in itself
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.MoveResourceFolderInsideItselfException.#ctor">
+            <summary>
+            Initializes a new instance of the CannotMoveFolderInsideItselfException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.MoveResourceFolderInsideItselfException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the CannotMoveFolderInsideItselfException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.MoveResourceFolderInsideItselfException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the CannotMoveFolderInsideItselfException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.MoveResourceFolderInsideItselfException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the MoveResourceFolderInsideItselfException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException">
+            <summary>
+            An exception that must be thrown when a SharedDataSource does not exist
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException" /> class.
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException" /> class.
+            </summary>
+            <param name="message">The message that describes the error</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.SharedDataSourceNotFoundException" /> class.
+            </summary>
+            <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ResourceFolderAlreadyExistsException">
+            <summary>
+            The exception that is thrown when saving, moving or renaming a resource folder would result in a overwrite
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderAlreadyExistsException.#ctor">
+            <summary>
+            Initializes a new instance of the FolderAlreadyExistsException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the FolderAlreadyExistsException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderAlreadyExistsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the FolderAlreadyExistsException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ResourceFolderAlreadyExistsException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ResourceFolderNotFoundException">
+            <summary>
+            The exception that is thrown when a resource folder cannot be found
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the FolderNotFoundException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the FolderNotFoundException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the FolderNotFoundException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ResourceFolderNotFoundException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException">
+            <summary>
+            The exception that is thrown when saving, moving or renaming a resource would result in a overwrite
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException.#ctor">
+            <summary>
+            Initializes a new instance of the ResourceAlreadyExistsException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ResourceAlreadyExistsException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the ResourceAlreadyExistsException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ResourceAlreadyExistsException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ResourceNotFoundException">
+            <summary>
+            The exception that is thrown when a resource cannot be found
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the ResourceNotFoundException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ResourceNotFoundException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the ResourceNotFoundException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ResourceNotFoundException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.TargetIsSameAsDestinationException">
+            <summary>
+            The exception that is thrown when renaming a resource or resource folder with the same name.
+            Also thrown when moving a resource or resource folder in the same parent folder.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.TargetIsSameAsDestinationException.#ctor">
+            <summary>
+            Initializes a new instance of the TargetIsSameAsDestinationException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.TargetIsSameAsDestinationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the TargetIsSameAsDestinationException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.TargetIsSameAsDestinationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the TargetIsSameAsDestinationException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.TargetIsSameAsDestinationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the TargetIsSameAsDestinationException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ValidationException">
+            <summary>
+            The exception that is thrown when a validation criteria is not satisfied
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ValidationException.#ctor">
+            <summary>
+            Initializes a new instance of the ValidationException class
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ValidationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ValidationException class
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the ValidationException class
+            </summary>
+            <param name="message"></param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ValidationException class
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.Permission">
+            <summary>
+            Represents a permission
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components">
+            <summary>
+            Parent permission for creating components.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems">
+            <summary>
+            Parent permission for creating report items.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_TextBox">
+            <summary>
+            Permission for creating a text box component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_HTMLTextBox">
+            <summary>
+            Permission for creating a HTML text box component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_PictureBox">
+            <summary>
+            Permission for creating a picture box component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_CheckBox">
+            <summary>
+            Permission for creating a check box component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Barcode">
+            <summary>
+            Permission for creating a barcode component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Shape">
+            <summary>
+            Permission for creating a shape component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Panel">
+            <summary>
+            Permission for creating a panel component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_RadialGauge">
+            <summary>
+            Permission for creating a radial gauge component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_LinearGauge">
+            <summary>
+            Permission for creating a linear gauge component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_List">
+            <summary>
+            Permission for creating a list component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Table">
+            <summary>
+            Permission for creating a table component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Crosstab">
+            <summary>
+            Permission for creating a crosstab component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_SubReport">
+            <summary>
+            Permission for creating a subReport component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Map">
+            <summary>
+            Permission for creating a map component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportItems_Chart">
+            <summary>
+            Permission for creating a chart component.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportSections">
+            <summary>
+             Parent permission for creating report sections.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportSections_PageHeader">
+            <summary>
+            Permission for creating a page header section.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportSections_PageFooter">
+            <summary>
+            Permission for creating a page footer section.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportSections_ReportHeader">
+            <summary>
+            Permission for creating a report header section.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportSections_ReportFooter">
+            <summary>
+            Permission for creating a report footer section.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Create_Components_ReportSections_TableOfContents">
+            <summary>
+            Permission for creating a table of contents section.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands">
+             <summary>
+            Parent permission for all commands.
+             </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document">
+            <summary>
+            Parent permission for all document commands.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_New">
+            <summary>
+            Permission for creating a new report.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_NewCombined">
+            <summary>
+            Permission for creating a new combined report.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_Open">
+            <summary>
+            Permission for opening a report.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_OpenRecent">
+            <summary>
+            Permission for opening a recent report.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_Save">
+            <summary>
+            Permission for saving a report.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_Overwrite">
+            <summary>
+            Permission for overwrite an existing report or shared data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_Close">
+            <summary>
+            Permission for closing a report.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_CloseAllButThis">
+            <summary>
+            Permission for closing all reports except current.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_Document_CloseAll">
+            <summary>
+            Permission for closing all reports.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_AssetsManager">
+            <summary>
+            Parent permission for the assets manager.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_AssetsManager_Reports">
+            <summary>
+            Permission for the Reports folder in the assets manager.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_AssetsManager_Resources">
+            <summary>
+            Permission for the Resources folder in the assets manager.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_AssetsManager_SharedDataSources">
+            <summary>
+            Permission for the SharedDataSources folder in the assets manager.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_WorkspacePreferences">
+            <summary>
+            Permission for workspace preferences.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources">
+            <summary>
+            Parent permission type for all data sources.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_InlineDataSource_Create">
+            <summary>
+            Parent permission for creating an inline data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_InlineDataSource_Create_Sql">
+            <summary>
+            Permission for creating a SQL inline data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_InlineDataSource_Create_Csv">
+            <summary>
+            Permission for creating a CSV inline data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_InlineDataSource_Create_Web">
+            <summary>
+            Permission for creating a web inline data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_InlineDataSource_Create_Json">
+            <summary>
+            Permission for creating a JSON inline data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_InlineDataSource_Create_Object">
+            <summary>
+            Permission for creating an object inline data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_SharedDataSource">
+            <summary>
+            Parent permission for shared data sources.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_SharedDataSource_Create">
+            <summary>
+            Permission for creating a shared data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_SharedDataSource_Edit">
+            <summary>
+            Permission for editing a shared data source.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.Models.Permission.Commands_DataSources_SharedDataSource_Delete">
+            <summary>
+            Permission for deleting a shared data source in Assets manager. N/A for removing a shared data source from a report.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ReportDesignerPermissionsBuilder">
+            <summary>
+            Represents a static class which helps for constructing an array of permissions
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Models.ReportDesignerPermissionsBuilder.Build(Telerik.WebReportDesigner.Services.Models.Permission[])">
+            <summary>
+            Transforms array of permissions into array of strings.
+            </summary>
+            <param name="permissions">Array of permissions</param>
+            <returns>Array of string values for input permissions</returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.DownloadSharedDataSourceModel">
+            <summary>
+            Model containing data for downloaded SharedDataSource definition.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.DownloadSharedDataSourceModel.Data">
+            <summary>
+            The raw data of the SharedDataSource definition.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.DownloadSharedDataSourceModel.Filename">
+            <summary>
+            The filename of the SharedDataSource definition with the extension.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.DownloadReportModel">
+            <summary>
+            Model containing data for downloaded report definition.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.DownloadReportModel.Data">
+            <summary>
+            The raw data of the report definition.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.DownloadReportModel.Filename">
+            <summary>
+            The filename of the report definition with the extension. Used in ReportServer scenario where the extension depends on the revision.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.FolderHasContentsResponseModel">
+            <summary>
+            The model containing the folder has contents response data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.FolderHasContentsResponseModel.HasContents">
+            <summary>
+            Gets or sets a value, indicating if the given folder has contents
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.FolderContentsResponseModel">
+            <summary>
+            The model containing the folder contents response data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.FolderContentsResponseModel.Folders">
+            <summary>
+            Gets or sets the folders, contained in the folder
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.FolderContentsResponseModel.Files">
+            <summary>
+            Gets or sets the files, contained in the folder
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.INamedModelBase">
+            <summary>
+            Base model for any model containing Name property
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.INamedModelBase.Name">
+            <summary>
+            Gets or sets the name
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.MoveResourceModel">
+            <summary>
+            The model containing the move resource data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.MoveResourceModel.OldUri">
+            <summary>
+            Gets or sets the unique resource identifier (URI)
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.MoveResourceModel.NewParentUri">
+            <summary>
+            The unique resource identifier (URI) of the parent folder, to which the existing resource will be moved
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel">
+            <summary>
+            The model containing the overwrite resource data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel.Uri">
+            <summary>
+            Gets or sets the unique resource identifier (URI)
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.RenameResourceModel">
+            <summary>
+            The model containing the rename resource data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.RenameResourceModel.OldUri">
+            <summary>
+            Gets or sets the unique resource identifier (URI)
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.RenameResourceModel.Name">
+            <summary>
+            Gets or sets the resource name
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.SearchResourceResponseModel">
+            <summary>
+            The model containing the search response data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SearchResourceResponseModel.Folders">
+            <summary>
+            Gets or sets the folders, that were found in the search
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SearchResourceResponseModel.Files">
+            <summary>
+            Gets or sets the files, that were found in the search
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ResourceFileDataModel">
+            <summary>
+            The model returned when downloading a resource.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileDataModel.Data">
+            <summary>
+            The raw resource data.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileDataModel.Name">
+            <summary>
+            The name of the resource
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileDataModel.MimeType">
+            <summary>
+            The MIME type of the resource where applicable
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.SaveResourceModel">
+            <summary>
+            The model containing the save resource data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SaveResourceModel.Name">
+            <summary>
+            Gets or sets the resource name
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SaveResourceModel.ParentUri">
+            <summary>
+            The unique resource identifier (URI) of the parent folder, in which the resource will be saved
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel">
+            <summary>
+            Model containing data for SharedDataSource instances.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel.Description">
+            <summary>
+            The description of the SharedDataSource instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel">
+            <summary>
+            The model containing the search data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel.ResourceFolderUri">
+            <summary>
+            Gets or sets the unique resource identifier (URI) of the folder. <see langword="null"/> or empty string is the root folder
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel.SearchPattern">
+            <summary>
+            Gets or sets the search pattern to match against the names of resources.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.CreateFolderModel">
+            <summary>
+            The model containing the create folder data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.ParentUri">
+            <summary>
+            The unique resource identifier (URI) of the parent folder
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.Name">
+            <summary>
+            The name which will be used when creating the folder
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.DataSourceInfo">
+            <summary>
+            Represents an object data source model used for serialization.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.DataSourceInfo.NetType">
+            <summary>
+            Gets or sets the .NET type.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.DataSourceInfo.DataSource">
+            <summary>
+            Gets or sets the data source object.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ErrorResponse.ErrorCode">
+            <summary>
+            The identifier of the error
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.MoveFolderModel">
+            <summary>
+            The model containing the move folder data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.MoveFolderModel.OldUri">
+            <summary>
+            The unique resource identifier (URI) of the folder
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.MoveFolderModel.NewParentUri">
+            <summary>
+            The unique resource identifier (URI) of the parent folder, to which the existing folder will be moved
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceParameterInfo">
+            <summary>
+            Represents an object data source parameter.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceParameterInfo.Name">
+            <summary>
+            Gets or sets the parameter name.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceParameterInfo.Value">
+            <summary>
+            Gets or sets the parameter value.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceParameterInfo.DataType">
+            <summary>
+            Gets or sets the parameter data type.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceInfo">
+            <summary>
+            Represents an object data source model.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceInfo.DataSource">
+            <summary>
+            Gets or sets the assembly-qualified name of the type used as a data source.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceInfo.DataMember">
+            <summary>
+            Gets or sets the name of the data-retrieval member. If omitted, the type ctor will be used instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ObjectDataSourceInfo.JsonParameters">
+            <summary>
+            Gets or sets the JSON-friendly representation of the data source parameters that will be passed to the data-retrieval member/constructor.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.RenameFolderModel">
+            <summary>
+            The model containing the rename folder data
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.OldUri">
+            <summary>
+            The unique resource identifier (URI) of the folder
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.Name">
+            <summary>
+            The new name of the folder
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel">
+            <summary>
+            A tree node structure used for representing a folder hierarchy, which contains the required data to display a folder and its parent folder identifier
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel.Name">
+            <summary>
+            Gets or sets the name of the folder
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel.ParentUri">
+            <summary>
+            Gets or sets the unique resource identifier (URI) of the parent of the folder
+            For the top-most folder this should be <see langword="null"/> or empty string
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel.HasSubFolders">
+            <summary>
+            Gets or sets a value, indicating if the folder has subfolders
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase">
+            <summary>
+            The base class for resources
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceModelBase.Uri">
+            <summary>
+            The unique resource identifier (URI).
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceModelBase.CreatedOn">
+            <summary>
+            Gets or sets the DateTime for when the resource was initially created
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceModelBase.ModifiedOn">
+            <summary>
+            Gets or sets the DateTime for when the resource was last modified
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.TypeInfo">
+            <summary>
+            Represents a type model.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.TypeInfo.TypeName">
+            <summary>
+            Gets or sets the assembly-qualified name of the type.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.TypeInfoWithFilter">
+            <summary>
+            Represents a type model with data member filter.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.TypeInfoWithFilter.DataMembersOnly">
+            <summary>
+            Gets or sets a value indicating whether to show only members of the current type decorated with the DataObjectMethodAttribute.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel">
+            <summary>
+            Represents a resource file model.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileModel.FileName">
+            <summary>
+            Gets or sets the name and extension of a resource file.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileModel.BasePath">
+            <summary>
+            Gets or sets the base path of resource files with such extension.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileModel.FullPath">
+            <summary>
+            Gets or sets the absolute path, name and extension of a resource file.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileModel.Size">
+            <summary>
+            Gets or sets the size of the resource in kilobytes
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileModel.ParentPath">
+            <summary>
+            Gets or sets the relative path of a resource file. The path is relative to the resources root folder.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.Models.ResourceFileModel.FullName">
+            <summary>
+            Returns the concatenated full path of the file, relative to the resources root folder.
+            Represents the path that will be preserved in the report definition.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration">
+            <summary>
+            Default implementation of the <see cref="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration"/> interface.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration.DefinitionStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.IDefinitionStorage"/>
+            implementation instance that will be used to open, save, and list available report definitions.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a report definition storage instance.
+            Set a built-in definition storage implementation or a custom implementation.
+            This is mandatory setting without defaults.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileDefinitionStorage"/>        
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration.SharedDataSourceStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.ISharedDataSourceStorage"/>
+            implementation instance that will be used to open, save, and list available SharedDataSource definitions.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a SharedDataSource definition storage instance.
+            Set a built-in definition storage implementation or a custom implementation.
+            This is not a mandatory setting with default location - the DefinitionStorage's location.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration.SettingsStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.ISettingsStorage"/>
+            implementation instance that will be used to list and save the available database connections.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a database connnection storage instance.
+            Set a built-in database connection storage implementation or a custom implementation.
+            This is mandatory setting without defaults.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileSettingsStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration.ResourceStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.IResourceStorage"/>
+            implementation instance that will be used to list and save the available resources.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a resource storage instance.
+            Set a built-in resource storage implementation or a custom implementation.
+            This is not a mandatory setting with default location - the DefinitionStorage's location.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileSettingsStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration.DeniedPermissions">
+            <summary>
+            Gets or sets permissions to deny some functions in web report designer.
+            </summary>
+            <remarks>
+            Use this property setter in order to restrict functionality in web report designer on application level.
+            </remarks>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration" /> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration">
+            <summary>
+            Represents an object containing all dependencies and settings
+            which the web report designer service needs to operate.
+            </summary>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.ReportDesignerServiceConfiguration"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration.DefinitionStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.IDefinitionStorage"/>
+            implementation instance that will be used to open, save, and list available <see cref="T:Telerik.Reporting.Report"/> definitions.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a report definition storage instance.
+            Set a built-in definition storage implementation or a custom implementation.
+            This is mandatory setting without defaults.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileDefinitionStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration.SharedDataSourceStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.ISharedDataSourceStorage"/>
+            implementation instance that will be used to open, save, and list available SharedDataSource definitions.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a SharedDataSource definition storage instance.
+            Set a built-in definition storage implementation or a custom implementation.
+            This is not a mandatory setting with default location - the DefinitionStorage's location.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration.SettingsStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.ISettingsStorage"/>
+            implementation instance that will be used to list and save the available database connections.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a database connnection storage instance.
+            Set a built-in database connection storage implementation or a custom implementation.
+            This is mandatory setting without defaults.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileSettingsStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration.ResourceStorage">
+            <summary>
+            Gets or sets an <see cref="T:Telerik.WebReportDesigner.Services.IResourceStorage"/>
+            implementation instance that will be used to list and save the available resources.
+            </summary>
+            <remarks>
+            Use this property setter in order to provide a resource storage instance.
+            Set a built-in resource storage implementation or a custom implementation.
+            This is not a mandatory setting with default location - the DefinitionStorage's location.
+            </remarks>
+            <seealso cref="T:Telerik.WebReportDesigner.Services.FileSettingsStorage"/>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration.DeniedPermissions">
+            <summary>
+            Gets or sets permissions to deny some functions in web report designer.
+            </summary>
+            <remarks>
+            Use this property setter in order to restrict functionality in web report designer on application level.
+            </remarks>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfigurationExtensions">
+            <summary>
+            Provides static extension methods for objects that implement the <see cref="T:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration"/> interface.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IReportDesignerServiceConfigurationExtensions.Validate(Telerik.WebReportDesigner.Services.IReportDesignerServiceConfiguration)">
+            <summary>
+            Validates an object representing a web report designer service configuration.
+            </summary>
+            <param name="configuration">The object that should be validated.</param>
+            <remarks>
+            This method is used internally from the web report designer service.
+            </remarks>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceFolderService.CanDelete(System.String)">
+            <summary>
+            Tests if the folder at the provided URI is the same as the root folder of the current storage.
+            Applies only on file-based storages (descendants of ResourceStorage)
+            </summary>
+            <param name="uri"></param>
+            <returns>SuccessResult if the resourceStorage is not file-based or the provided URI is not the root folder. Otherwise - ErrorResult.</returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.IAssetsStorage">
+            <summary>
+            Represents base functionality of resource storage, common for report definitions and resources.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.GetFolderContentsAsync(System.String)">
+            <summary>
+            Gets all resources contained in the given <paramref name="uri"/>
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder</param>
+            <returns>A list of all resources found in the folder as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.GetFolderAsync(System.String)">
+            <summary>
+            Returns the folder model at <paramref name="uri"/> or <see langword="null"/> if not found.
+            </summary>
+            <param name="uri">The unique resource identifier (URI).</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the obtained folder.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.CreateFolderAsync(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates the given folder (<see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.Name"/>) in <see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.ParentUri"/>
+            </summary>
+            <param name="model">The model containing the create operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.RenameFolderAsync(Telerik.WebReportDesigner.Services.Models.RenameFolderModel)">
+            <summary>
+            Renames the given folder at <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.Name"/>.
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>        
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.DeleteFolderAsync(System.String)">
+            <summary>
+            Deletes the given folder at <paramref name="uri"/>
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.GetModelAsync(System.String)">
+            <summary>
+            Returns the resource model at <paramref name="uri"/> or <see langword="null"/> if not found.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.GetAsync(System.String)">
+            <summary>
+            Finds a resource by its name and returns its contents as byte array.
+            </summary>
+            <remarks>Must throw a <see cref="T:Telerik.WebReportDesigner.Services.ReportNotFoundException"/> when the requested <paramref name="resourceName"/> represents a report definition and was not found. Must throw a <see cref="T:Telerik.WebReportDesigner.Services.ResourceNotFoundException"/> when the requested <paramref name="resourceName"/> represents a resource and was not found.</remarks>
+            <returns><see cref="T:System.Threading.Tasks.Task`1"/>, where TResult is <see cref="T:System.Byte"/>[], containing the resource bytes.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves the raw data of a resource and returns its model.
+            </summary>
+            <param name="model">The model containing the save operation data.</param>
+            <param name="resource">The contents of the resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the saved resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.RenameAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames the given resource
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IAssetsStorage.DeleteAsync(System.String)">
+            <summary>
+            Deletes the given resource
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ISharedDataSourceStorage">
+            <summary>
+            Represents a SharedDataSource definition storage.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISharedDataSourceStorage.GetModelAsync(System.String)">
+            <summary>
+            Returns the SharedDataSource model at <paramref name="uri"/> or <see langword="null"/> if not found.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISharedDataSourceStorage.SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves the raw data of a SharedDataSourceModel and returns its model.
+            </summary>
+            <param name="model">The model containing the save operation data.</param>
+            <param name="resource">The contents of the SharedDataSourceModel resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the saved resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISharedDataSourceStorage.RenameAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames the given SharedDataSourceModel resource.
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceResolver.#ctor(Telerik.WebReportDesigner.Services.IResourceStorage,System.String)">
+            <summary>
+            Creates an instance of ResourceResolver to be used with WebReportDesigner's storage.
+            Uses the definition directory as a fallback PathResolver for backwards compatibility.
+            The fallback resolver should kick in when rendering reports whose resources were resolved using the definition storage path, i.e. our PopulationDensity demo where the world.shp is referenced as \Resources\world.shp
+            Since the main resolver uses the \Resources folder as its base dir, the \Resources path gets duplicated, so the main resolver fails and the fallback resolver succeeds.
+            </summary>
+            <param name="resourceStorage"></param>
+            <param name="definitionDir">Path to the report definition directory which will be used as a fallback resource resolution for backwards compatibility.</param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase">
+            <summary>
+            Represents a base class for file-based definition storages.    
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.FileExtensions">
+            <summary>
+            Gets an array with allowed file extensions.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.ValidateDefinitionId(System.String)">
+            <summary>
+            Validates the provided definitionId.
+            </summary>
+            <param name="definitionId"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.#ctor(System.String,System.String[])">
+            <summary>
+            Creates an instance of <see cref="T:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase"/> class.
+            </summary>
+            <param name="baseDir"></param>
+            <param name="definitionFolders"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.#ctor(System.String,System.String[],System.String[])">
+            <summary>
+            Creates an instance of <see cref="T:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase"/> class.
+            </summary>
+            <param name="baseDir"></param>
+            <param name="definitionFolders"></param>
+            <param name="excludedFolders"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.GetFolderContents(System.String,System.String[])">
+            <summary>
+            Lists all definition resource files found in the given <paramref name="uri"/>.
+            </summary>
+            <param name="uri">The unique resource identifier(URI) of the folder. <see langword="null"/> or empty string represents the root directory</param>
+            <param name="searchPattern">The file search patterns used when retrieving definition resources.</param>
+            <returns>A list of all files and subfolders found in the provided folder URI as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.GetByUri``1(System.String)">
+            <summary>
+            Returns the raw bytes from the given <paramref name="uri"/>.
+            </summary>
+            <typeparam name="TDefinitionNotFoundException"></typeparam>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.RenameAsync``1(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames a definition asset.
+            </summary>
+            <typeparam name="TInvalidDefinitionNameException"></typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.SaveAsync``1(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves a definition asset.
+            </summary>
+            <typeparam name="TDefinitionNotFoundException"></typeparam>
+            <param name="model"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.GetFolderAsync(System.String)">
+            <summary>
+            Returns the folder model at <paramref name="uri"/> or <see langword="null"/> if not found.
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.GetModelAsync(System.String)">
+            <summary>
+            Returns the resource model at <paramref name="uri"/> or <see langword="null"/> if not found.
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.DeleteAsync(System.String)">
+            <summary>
+            Deletes a report by its <paramref name="uri"/>.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the report.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.Save(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[],System.Boolean,System.Boolean)">
+            <summary>
+            Creates new or overwrites an existing Report- or SharedDataSource definition file with the provided definition bytes.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"></param>
+            <param name="overwrite"></param>
+            <param name="forcePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorageBase.WrapException``3(System.Func{``0})">
+            <summary>
+            Executes a callback and wraps the TResourceException in a TDefinitionException, if one occurs.
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TDefinitionException"></typeparam>
+            <typeparam name="TResourceException"></typeparam>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISharedDataSourceService.Get(System.String)">
+            <summary>
+            Gets the JSON-serialized representation of the SharedDataSource resource by its URI.
+            </summary>
+            <param name="uri">The URI of the SharedDataSource.</param>
+            <returns>JSON string, representing the underlying DataSource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISharedDataSourceService.SaveRaw(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves the XML-serialized representation of the underlying DataSource instance, referenced by the SharedDataSource resource.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"><see cref="T:System.Byte"/>[], containing the UTF8-encoded bytes of the XML-serialized underlying DataSource instance.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceService.Get(System.String)">
+            <summary>
+            Gets the JSON-serialized representation of the SharedDataSource resource by its URI, wrapped in a Result object.
+            </summary>
+            <param name="uri">The URI of the SharedDataSource. Can't be an expression - must be evaluated first.</param>
+            <returns>JSON string, representing the underlying DataSource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceService.SerializeRawSdsDefinitionToJson(System.Byte[])">
+            <summary>
+            Gets the JSON-serialized representation of the SharedDataSource resource raw data.
+            </summary>
+            <param name="data"><see cref="T:System.Byte"/>[], containing the UTF8-encoded bytes of the XML-serialized underlying DataSource instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceService.Save(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Converts and saves as XML the JSON-serialized representation of the underlying DataSource instance, referenced by the SharedDataSource resource.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"><see cref="T:System.Byte"/>[], containing the UTF8-encoded bytes of the JSON-serialized underlying DataSource instance.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceService.SaveRaw(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves the XML-serialized representation of the underlying DataSource instance, referenced by the SharedDataSource resource.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"><see cref="T:System.Byte"/>[], containing the UTF8-encoded bytes of the XML-serialized underlying DataSource instance.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ReportStorageService.EnsureUriIsNotUsedByOtherFileStorages(System.String,Telerik.WebReportDesigner.Services.IHasBaseDir,Telerik.WebReportDesigner.Services.IResourceFolderService[])">
+            <summary>
+            This check is performed only for file-based storages and checks if the deleted URI is not a root folder of some of the other storages.
+            </summary>
+            <param name="uri"></param>
+            <param name="reportFileStorage"></param>
+            <param name="folderServices"></param>
+            <returns>SuccessResult if the storages are not file-based, the passed URI is not a root folder to any storage, or the directory does not exist.</returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage">
+            <summary>
+            Represents a file-based definition storage to resolve SharedDataSource definitions from a local directory.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.FileExtensions">
+            <summary>
+            Gets an array with allowed file extensions.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.RootFolderName">
+            <summary>
+            SharedDataSources does not have a default root folder. By default it uses the root folder where the report definitions are kept.        
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage"/> class.
+            </summary>
+            <param name="baseDir">The base directory where the SharedDataSource definitions are stored.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage"/> class.
+            </summary>
+            <param name="baseDir">The base directory where the SharedDataSource subfolders are stored.</param>
+            <param name="definitionFolders">The folders where the SharedDataSource definitions are stored. Pass an empty string array to include all the folders.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.#ctor(System.String,System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage"/> class.
+            </summary>
+            <param name="baseDir">The base directory where the SharedDataSource definitions are stored.</param>
+            <param name="definitionFolders">The folders where the SharedDataSource definitions are stored. Pass an empty string array to include all the folders.</param>
+            <param name="excludedFolders">Relative folder paths to be excluded when retrieving folder contents. Wildcards are not supported.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.Telerik#WebReportDesigner#Services#ISharedDataSourceStorage#SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Creates new or overwrites an existing SharedDataSource definition file with the provided definition bytes.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"></param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves the new bytes of a SharedDataSource resource and returns the information about it.
+            The path to the SharedDataSource resource will be created if it does not exists.
+            </summary>
+            <param name="model">The model containing the save operation data</param>
+            <param name="resource">The contents of the resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the resource.</returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidResourceNameException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.Overwrite(Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel,System.Byte[])">
+            <summary>
+            Overwrites existing SharedDataSource.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"></param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the overwritten resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.Telerik#WebReportDesigner#Services#ISharedDataSourceStorage#GetModelAsync(System.String)">
+            <summary>
+            Returns the SharedDataSource model at <paramref name="uri"/> or <see langword="null"/> if not found.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.GetModelAsync(System.String)">
+            <summary>
+            Finds a SharedDataSource resource by its uri and returns the information about it.
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.Telerik#WebReportDesigner#Services#ISharedDataSourceStorage#RenameAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames a SharedDataSource by its <paramref name="model"/>.
+            </summary>
+            <param name="model">The model containing relevant data used to rename</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.RenameAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames a definition asset.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.Move(Telerik.WebReportDesigner.Services.Models.MoveResourceModel)">
+            <summary>
+            Moves the given SharedDataSource resource <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveResourceModel.NewParentUri"/>
+            </summary>
+            <param name="model">The model containing the move operation data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.SharedDataSourceModel"/>, containg the information about the folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.ValidateDefinitionId(System.String)">
+            <summary>
+            Validates the provided definitionId.
+            </summary>
+            <param name="definitionId"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.IsExtensionValid(System.String)">
+            <summary>
+            Determines if an asset extension is valid.
+            </summary>
+            <param name="resourceExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSharedDataSourceStorage.IsSdsExtensionValid(System.String)">
+            <summary>
+            Determines if the provided <paramref name="sdsFileExtension"/> is valid file extension for SDSX/SDSP assets.
+            </summary>
+            <param name="sdsFileExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceSerializationConverter.ConvertToXml(System.Byte[])">
+            <summary>
+            Converts a JSON-serialized instance, represented by UTF-8 bytes, to XML-serialized instance, represented by a string.
+            </summary>
+            <param name="sharedDataSourceJsonDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceSerializationConverter.ConvertToXml(System.String)">
+            <summary>
+            Converts a JSON-serialized instance, represented by a string, to XML-serialized instance, represented by a string.
+            </summary>
+            <param name="sharedDataSourceJsonDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceSerializationConverter.ConvertToJsonBytes(System.Byte[])">
+            <summary>
+            Converts a XML-serialized instance, represented by UTF-8 bytes, to JSON-serialized instance, represented by a string.
+            </summary>
+            <param name="sharedDataSourceXmlDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.SharedDataSourceSerializationConverter.ConvertToJson(System.String)">
+            <summary>
+            Converts a XML-serialized instance, represented by a string, to JSON-serialized instance, represented by a string.
+            </summary>
+            <param name="sharedDataSourceXmlDefinition"></param>
+            <returns></returns>
+            <exception cref="T:Telerik.Reporting.Xml.SerializationException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IFileSystemUtils.ExtractResourceName(System.String,System.String[]@)">
+            <summary>
+            Splits the relativeUri in parts using Path separators. Returns the last part as resource name and paths (if any) as pathParts.
+            </summary>
+            <param name="relativeUri">relative URI to the resource that may contain paths.</param>
+            <param name="pathParts"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ReportNotFoundException">
+            <summary>
+            An exception that must be thrown when a report does not exist
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ReportNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ReportNotFoundException" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ReportNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ReportNotFoundException" /> class.
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ReportNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ReportNotFoundException" /> class.
+            </summary>
+            <param name="message">The message that describes the error</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ReportNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ReportNotFoundException" /> class.
+            </summary>
+            <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Wrappers.ReportingJsonSerializerWrapper.Deserialize``1(System.String,Telerik.Reporting.Serialization.SerializationSettings)">
+            <summary>
+            This method <strong>always</strong> creates a new <see cref="T:Telerik.Reporting.JsonSerialization.JsonSerializer"/> instance with the specified settings.
+            <para>This might fit some use cases, but if reuse of the <see cref="T:Telerik.Reporting.JsonSerialization.JsonSerializer"/> instance would be benefitial, <strong>do not use this method</strong></para>
+            </summary>
+            <typeparam name="T">The type to deserialize to</typeparam>
+            <param name="json">The json that will be passed to the <see cref="M:Telerik.Reporting.JsonSerialization.JsonSerializer.Deserialize``1(System.String)"/> method</param>
+            <param name="serializationSettings">The <see cref="T:Telerik.Reporting.Serialization.SerializationSettings"/> that will be passed to the
+            <see cref="M:Telerik.Reporting.JsonSerialization.JsonSerializer.#ctor(Telerik.Reporting.Serialization.SerializationSettings)"/> constructor</param>
+            <returns>The result from <see cref="M:Telerik.Reporting.JsonSerialization.JsonSerializer.Deserialize``1(System.String)"/> method</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.DataConnectionsResolver.ResolveDataSource``1(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.DataConnectionsResolver.ResolveDataSource(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IDataConnectionsResolver.ResolveDataSource``1(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Tries to resolve a <see cref="T:Telerik.Reporting.DataSource"/> from the available DataSources and cast it to the specific <typeparamref name="TDataSource"/> type.
+            <para>Will return null if the resolved <see cref="T:Telerik.Reporting.DataSource"/> is not a <typeparamref name="TDataSource"/> instance</para>
+            </summary>
+            <typeparam name="TDataSource">The <see cref="T:Telerik.Reporting.DataSource"/> type to return</typeparam>
+            <param name="info">The <see cref="T:Telerik.WebReportDesigner.Services.Models.DataSourceInfo"/> used to retrieve the retrieve the <see cref="T:Telerik.Reporting.DataSource"/></param>
+            <returns>The <typeparamref name="TDataSource"/> instance or null</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IDataConnectionsResolver.ResolveDataSource(Telerik.WebReportDesigner.Services.Models.DataSourceInfo)">
+            <summary>
+            Tries to resolve a <see cref="T:Telerik.Reporting.DataSource"/> from the available DataSources
+            </summary>
+            <param name="info">The <see cref="T:Telerik.WebReportDesigner.Services.Models.DataSourceInfo"/> used to retrieve the <see cref="T:Telerik.Reporting.DataSource"/> implementation</param>
+            <returns>The <see cref="T:Telerik.Reporting.DataSource"/> instance</returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.FileDefinitionStorage">
+            <summary>
+            Represents a file-based definition storage to resolve report definitions from a local directory.    
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.FileDefinitionStorage.FileExtensions">
+            <summary>
+            Gets an array with allowed file extensions.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.FileDefinitionStorage.RootFolderName">
+            <summary>
+            The constant name of the Reports root folder.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.FileDefinitionStorage"/> class.
+            </summary>
+            <param name="baseDir">The base directory where the report definitions are stored.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorage.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.FileDefinitionStorage"/> class.
+            </summary>
+            <param name="baseDir">The base directory where the report definitions are stored.</param>
+            <param name="excludedFolders">Relative folder paths to be excluded when retrieving folder contents. Wildcards are not supported.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorage.GetByUri(System.String)">
+            <summary>
+            Finds a definition by its <paramref name="uri"/> and returns its contents as byte array.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the definition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorage.RenameAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames a report by its <paramref name="model"/>.
+            </summary>
+            <param name="model">The model containing relevant data used to rename</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorage.SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Creates new or overwrites an existing report definition file with the provided definition bytes.
+            </summary>
+            <param name="model"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileDefinitionStorage.ValidateDefinitionId(System.String)">
+            <summary>
+            Validates the provided definitionId.
+            </summary>
+            <param name="definitionId"></param>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.FileSettingsStorage">
+            <summary>
+            Represents a database connections storage to resolve ConnectionStrings. 
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSettingsStorage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.FileSettingsStorage" /> class with specified location for the designer settings file.
+            </summary>
+            <param name="settingsDirectory">The directory to keep the Web Report Designer settings</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSettingsStorage.GetConnections">
+            <summary>
+            Lists all connections found in the project configuration .
+            </summary>
+            <returns>A list of all connection string present in the project configuration.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.FileSettingsStorage.AddConnection(Telerik.Reporting.Data.Schema.ConnectionInfo)">
+            <summary>
+            Add connections current user application configuration file.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.IDefinitionStorage">
+            <summary>
+            Represents a report definition storage.
+            </summary>    
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.IResourceStorage">
+            <summary>
+            Represents a resource storage.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.GetAllByExtension(System.String[])">
+            <summary>
+            Returns the ids of the resource files that match the specified search extensions in the resource storage.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.GetFolderByName(System.String)">
+            <summary>
+            Gets the folder model at <paramref name="folderName"/>.
+            </summary>
+            <param name="folderName">The path to the folder using Name identifiers.</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the obtained folder.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.FolderNameExists(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="folderName"/> exists.
+            </summary>
+            <param name="folderName">The path to the folder using Name identifiers.</param>
+            <returns><see langword="true"/>, if the folder exists, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.FolderExists(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="uri"/> exists.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder.</param>
+            <returns><see langword="true"/>, if the folder exists, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.FolderHasContents(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="uri"/> has contents
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder</param>
+            <returns><see langword="true"/>, if the folder has contents, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.MoveFolder(Telerik.WebReportDesigner.Services.Models.MoveFolderModel)">
+            <summary>
+            Moves a folder from the given <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveFolderModel.NewParentUri"/>, including all of its content
+            </summary>
+            <param name="model">The model containing the move operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.GetByUri(System.String)">
+            <summary>
+            Finds a resource by its <paramref name="uri"/> and returns its contents as byte array.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.ResourceExists(System.String)">
+            <summary>
+            Determines if a resource with the provided URI exists. 
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the resource.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.GetFile(System.String)">
+            <summary>
+            Finds a resource by its URI and returns a model containing the download data.
+            </summary>
+            <param name="resourceUri">The URI of the resource.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileDataModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.ResourceNameExists(System.String)">
+            <summary>
+            Determines if a resource with the provided name exists. 
+            </summary>
+            <param name="resourceName">The full path to the resource using Name identifiers.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.GetModelByName(System.String)">
+            <summary>
+            Finds a resource by its name and returns the information about it.
+            </summary>
+            <param name="resourceName">The full path to the resource using Name identifiers.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.Save(System.String,System.Byte[])">
+            <summary>
+            Saves the new bytes of a resource name and returns the resource file's location.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.Move(Telerik.WebReportDesigner.Services.Models.MoveResourceModel)">
+            <summary>
+            Moves the given resource <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveResourceModel.NewParentUri"/>
+            </summary>
+            <param name="model">The model containing the move operation data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.Overwrite(Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel,System.Byte[])">
+            <summary>
+            Overwrites the given resource contents with <paramref name="resource"/>
+            </summary>
+            <param name="model">The model containing the overwrite operation data</param>
+            <param name="resource">The new contents of the resource</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.IResourceStorage.Search(Telerik.WebReportDesigner.Services.Models.SearchResourcesModel)">
+            <summary>
+            Searches for resource in the given <see cref="P:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel.ResourceFolderUri"/>
+            </summary>
+            <param name="model">The model containing the search operation data</param>
+            <returns>The search results, both files and folders, as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ISettingsStorage">
+            <summary>
+            Represents a database connection storage
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISettingsStorage.GetConnections">
+            <summary>
+            Lists all connections found in the project configuration .
+            </summary>
+            <returns>A list of all connection string present in the project configuration.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ISettingsStorage.AddConnection(Telerik.Reporting.Data.Schema.ConnectionInfo)">
+            <summary>
+            Add connections current user application configuration file.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ResourceStorageBase">
+            <summary>
+            Abstract base class that handles the creation of default folders.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.ResourceStorageBase.defaultFolders">
+            <summary>
+            List with default folders created when the ResourceStorage is instantiated.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.ResourceStorageBase.DefaultFoldersToCreate">
+            <summary>
+            Gets or sets the default folders that will be created upon starting.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorageBase.#ctor(Telerik.WebReportDesigner.Services.Models.CreateFolderModel[])">
+            <summary>
+            Initializes a new instance of a descendant of the <see cref="T:Telerik.WebReportDesigner.Services.ResourceStorageBase"/> class.
+            </summary>
+            <param name="defaultFolders"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorageBase.EnsureDefaultFolders">
+            <summary>
+            Ensures the default folders will be created.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorageBase.CreateDefaultFolder(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates a folder by the given model.
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorageBase.GetOrderedDefaultFoldersToCreate">
+            <summary>
+            Gets the order in which the default folders will be created.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorageBase.ValidateSavedResourceExtension(System.String)">
+            <summary>
+            Validates if the extension of the resourceName is not in the forbidden extensions list.
+            </summary>
+            <param name="resourceName"></param>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidResourceNameException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorageBase.IsExtensionValid(System.String)">
+            <summary>
+            Determines if an asset extension is valid.
+            </summary>
+            <param name="resourceExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.WebReportDesigner.Services.ResourceStorage">
+            <summary>
+            Represents a resource storage to resolve report resources from local directory. 
+            </summary>
+        </member>
+        <member name="F:Telerik.WebReportDesigner.Services.ResourceStorage.RootFolderName">
+            <summary>
+            The constant name of the Resources root folder.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ResourceStorage"/> class.
+            Creates a new storage for report resources.
+            </summary>
+            <param name="baseDir">The base directory where the report resources are stored.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ResourceStorage"/> class.
+            Creates a new storage for report resources.
+            </summary>
+            <param name="baseDir">The base directory where the report resources are stored.</param>
+            <param name="excludedFolders">Relative folder paths to be excluded when retrieving folder contents. Wildcards are not supported.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ResourceStorage"/> class.
+            Creates a new storage for report resources.
+            </summary>
+            <param name="baseDir">The base directory where the report resources are stored.</param>
+            <param name="extensionDirectories">Mapping between resources' extensions and their store directories in the file explorer.</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.#ctor(System.String,Telerik.WebReportDesigner.Services.Models.CreateFolderModel[],System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.WebReportDesigner.Services.ResourceStorage"/> class.
+            Creates a new storage for report resources.
+            </summary>
+            <param name="baseDir">The base directory where the report resources are stored.</param>
+            <param name="defaultFolders">The collection of folders that will be created by default</param>
+            <param name="excludedFolders">Relative folder paths to be excluded when retrieving folder contents. Wildcards are not supported.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ResourceStorage.BaseDir">
+            <summary>
+            Gets the base directory used to access the report resources .
+            </summary>
+        </member>
+        <member name="P:Telerik.WebReportDesigner.Services.ResourceStorage.ExcludedAbsolutePaths">
+            <summary>
+            Returns collection of absolute paths that need to be excluded from the folders search. 
+            Late initialization is mandatory to handle the case when the Resources folder is not yet created (FileDefinitionStorage is created before ResourceStorage).
+            see #446863
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetOrderedDefaultFoldersToCreate">
+            <summary>
+            Orders the folders to be created in a way that ensures the parents will be created first.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetAllByExtension(System.String[])">
+            <summary>
+            Lists all report resources found in the baseDir folder specified in the constructor and all nested directories
+            </summary>
+            <param name="extensions">The search strings to match against the names of files in the path.
+            This parameter can contain a combination of valid literal path and wildcard (* and ?) characters,
+            but it doesn't support regular expressions.</param>
+            <returns>A list of all report resource file names and full paths present in the specified directory.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetFolderContentsAsync(System.String)">
+            <summary>
+            Lists all report resource files found in the given <paramref name="uri"/>.
+            </summary>
+            <param name="uri">The unique resource identifier(URI) of the folder. <see langword="null"/> or empty string represents the root (<see cref="P:Telerik.WebReportDesigner.Services.ResourceStorage.BaseDir"/>) directory</param>
+            <returns>A list of all files and subfolders found in the provided folder URI as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetFolderContents(System.String,System.String[])">
+            <summary>
+            Lists all report definition files in the given <paramref name="uri"/>.
+            </summary>
+            <param name="uri">The unique resource identifier(URI) of the folder. <see langword="null"/> or empty string represents the root (<see cref="P:Telerik.WebReportDesigner.Services.ResourceStorage.BaseDir"/>) directory</param>
+            <param name="searchPattern"></param>        
+            <returns>A list of all report definitions and folders found in the folder as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.FolderHasContents(System.String)">
+            <summary>
+            Gets all resources contained in the given <paramref name="uri"/>
+            </summary>
+            <param name="uri">The unique resource identifier(URI) of the folder.</param>
+            <returns>A list of all resources found in the folder as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetFolderAsync(System.String)">
+            <summary>
+            Gets the folder model at <paramref name="uri"/>.
+            </summary>
+            <param name="uri">The unique resource identifier (URI).</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the obtained folder.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetFolderByName(System.String)">
+            <summary>
+            Gets the folder model at <paramref name="folderName"/>.
+            The default implementation returns the result of the <see cref="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetFolder(System.String)"/> method.
+            </summary>
+            <param name="folderName">The path to the folder using Name identifiers.</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the obtained folder.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.CreateFolderAsync(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates the given folder (<see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.Name"/>) in <see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.ParentUri"/>
+            </summary>
+            <param name="model">The model containing the create operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.CreateFolderCoreAsync(Telerik.WebReportDesigner.Services.Models.CreateFolderModel,System.Boolean)">
+            <summary>
+            Creates the given folder (<see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.Name"/>) in <see cref="P:Telerik.WebReportDesigner.Services.Models.CreateFolderModel.ParentUri"/>
+            </summary>
+            <param name="model">The model containing the create operation data</param>
+            <param name="throwIfExists">Determines whether to throw an exception if the folder being created, already exists.</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidFolderNameException"></exception>
+            <exception cref="T:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.MoveFolder(Telerik.WebReportDesigner.Services.Models.MoveFolderModel)">
+            <summary>
+            Moves a folder from the given <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveFolderModel.NewParentUri"/>, including all of its content
+            </summary>
+            <param name="model">The model containing the move operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.RenameFolderAsync(Telerik.WebReportDesigner.Services.Models.RenameFolderModel)">
+            <summary>
+            Renames the given folder at <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.OldUri"/> to <see cref="P:Telerik.WebReportDesigner.Services.Models.RenameFolderModel.Name"/>, including all of its contents (similar to the <see cref="M:Telerik.WebReportDesigner.Services.ResourceStorage.MoveFolder(Telerik.WebReportDesigner.Services.Models.MoveFolderModel)"/> method)
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns>The <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFolderModel"/> of the newly created folder</returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidFolderNameException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.DeleteFolderAsync(System.String)">
+            <summary>
+            Delete the given folder at <paramref name="uri"/>
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.FolderNameExists(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="folderName"/> exists.
+            The default implementation returns the result of the <see cref="M:Telerik.WebReportDesigner.Services.ResourceStorage.FolderExists(System.String)"/>.
+            </summary>
+            <param name="folderName">The path to the folder using Name identifiers.</param>
+            <returns><see langword="true"/>, if the folder exists, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.FolderExists(System.String)">
+            <summary>
+            Determines if the given folder <paramref name="uri"/> exists.
+            </summary>
+            <param name="uri">The unique resource identifier (URI) of the folder.</param>
+            <returns><see langword="true"/>, if the folder exists, else <see langword="false"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetAsync(System.String)">
+            <summary>
+            Finds a report resource file by its name. The name is the full filename (with extension).
+            The default implementation returns the result of the <see cref="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetByUri(System.String)"/>.
+            </summary>
+            <param name="resourceName">The report resource filename (with extension).</param>
+            <returns><see cref="T:System.Byte"/> array.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetByUri(System.String)">
+            <summary>
+            Finds a resource by its <paramref name="resourceUri"/> and returns its contents as byte array.
+            </summary>
+            <param name="resourceUri">The unique resource identifier (URI) of the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.ResourceNameExists(System.String)">
+            <summary>
+            Determines if a resource with the provided name exists. 
+            The default implementation returns the result of the <see cref="M:Telerik.WebReportDesigner.Services.ResourceStorage.ResourceExists(System.String)"/>.
+            </summary>
+            <param name="resourceName">The full path to the resource using Name identifiers.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.ResourceExists(System.String)">
+            <summary>
+            Determines if a resource with the provided URI exists. 
+            </summary>
+            <param name="resourceUri">The unique resource identifier (URI) of the resource.</param>
+            <returns><see langword="true"/>, if the resource exists, else <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetFile(System.String)">
+            <summary>
+            Finds a resource by its URI and returns a model containing the download data.
+            </summary>
+            <param name="resourceUri">The URI of the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetModelByName(System.String)">
+            <summary>
+            Finds a resource by its name and returns the information about it.
+            The default implementation returns the result of the <see cref="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetModel(System.String)"/>.
+            </summary>
+            <param name="resourceName">The full path to the resource using Name identifiers.</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the resource.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetModelAsync(System.String)">
+            <summary>
+            Finds a resource by its uri and returns the information about it
+            </summary>
+            <param name="resourceUri">The unique resource identifier (URI)</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.GetModelCore``1(System.String)">
+            <summary>
+            Reads the model of the given type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="resourceUri"></param>
+            <returns>Instance of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.Save(System.String,System.Byte[])">
+            <summary>
+            Creates new or overwrites an existing report resource file with the provided resource bytes.
+            </summary>
+            <param name="resourceName">The report resource filename including the file extension.</param>
+            <param name="resource">The new bytes of the report resource.</param>
+            <returns>The location of the resource file.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[])">
+            <summary>
+            Saves the new bytes of a resource and returns the information about it.
+            </summary>
+            <param name="model">The model containing the save operation data</param>
+            <param name="resource">The contents of the resource</param>
+            <returns></returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidResourceNameException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.SaveAsync(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[],System.Boolean)">
+            <summary>
+            Saves the new bytes of a resource and returns the information about it.
+            </summary>
+            <param name="model">The model containing the save operation data</param>
+            <param name="resource">The contents of the resource</param>
+            <param name="forcePath">Determines whether the path to the resource will be created, if it does not exist, or an exception will be thrown.</param>
+            <returns></returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidResourceNameException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.SaveCore``1(Telerik.WebReportDesigner.Services.Models.SaveResourceModel,System.Byte[],System.Boolean)">
+            <summary>
+            Saves the model of the given type <typeparamref name="T"/> using the provided bytes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model">The model containing the save operation data</param>
+            <param name="resource">The contents of the resource</param>
+            <param name="forcePath">Determines whether the path to the resource will be created, if it does not exist, or an exception will be thrown.</param>
+            <returns>Instance of <typeparamref name="T"/>.</returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.ResourceAlreadyExistsException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.Overwrite(Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel,System.Byte[])">
+            <summary>
+            Overwrties the given resource contents with <paramref name="resource"/>
+            </summary>
+            <param name="model">The model containing the overwrite operation data</param>
+            <param name="resource">The new contents of the resource</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.OverwriteCore``1(Telerik.WebReportDesigner.Services.Models.OverwriteResourceModel,System.Byte[])">
+            <summary>
+            Overwrites the model of given type <typeparamref name="T"/> using the provided bytes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <param name="resource"></param>
+            <returns>Instance of <typeparamref name="T"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.RenameAsync(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames the given resource
+            </summary>
+            <param name="model">The model containing the rename operation data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the folder</returns>
+            <exception cref="T:Telerik.WebReportDesigner.Services.InvalidResourceNameException"></exception>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.RenameCore``1(Telerik.WebReportDesigner.Services.Models.RenameResourceModel)">
+            <summary>
+            Renames a resource of the given type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <returns>Instance of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.Move(Telerik.WebReportDesigner.Services.Models.MoveResourceModel)">
+            <summary>
+            Moves the given resource <see cref="P:Telerik.WebReportDesigner.Services.Models.MoveResourceModel.NewParentUri"/>
+            </summary>
+            <param name="model">The model containing the move operation data</param>
+            <returns><see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceFileModel"/>, containg the information about the folder</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.MoveCore``1(Telerik.WebReportDesigner.Services.Models.MoveResourceModel)">
+            <summary>
+            Moves a resource of the given type <typeparamref name="T"/> to a new parent.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <returns>Instance of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.DeleteAsync(System.String)">
+            <summary>
+            Deletes the given resource
+            </summary>
+            <param name="uri">The unique resource identifier (URI)</param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.Search(Telerik.WebReportDesigner.Services.Models.SearchResourcesModel)">
+            <summary>
+            Searches for resource in the given <see cref="P:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel.ResourceFolderUri"/>
+            </summary>
+            <param name="model">The model containing the search operation data.
+            The <see cref="P:Telerik.WebReportDesigner.Services.Models.SearchResourcesModel.SearchPattern"/>
+            can contain a combination of valid literal path and wildcard (* and ?) characters,
+            but regular expressions are not supported.</param>
+            <returns>The search results, both files and folders, as an enumerable of <see cref="T:Telerik.WebReportDesigner.Services.Models.ResourceModelBase"/></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.CreateDirectory(System.String[])">
+            <summary>
+            Creates a directory using the provided <paramref name="relativePaths"/>.
+            </summary>
+            <param name="relativePaths"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.EnsureDefaultFolders">
+            <summary>
+            Ensures the root and default folders will be created.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.CreateDefaultFolder(Telerik.WebReportDesigner.Services.Models.CreateFolderModel)">
+            <summary>
+            Creates a default folder.
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.ResourceStorage.EnsureHasContents(System.String)">
+            <summary>
+            Checks if the provided string content is not null or empty.
+            </summary>
+            <param name="string"></param>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Validation.ValidationExtensions.ValidateReportDefinitionUri(System.String)">
+            <summary>
+            Validates definition URI that represents a relative path to a report definition, i.e. might contains path characters.
+            </summary>
+            <param name="definitionUri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Validation.ValidationExtensions.ValidateSharedDataSourceDefinitionUri(System.String)">
+            <summary>
+            Validates a definition URI that represents a relative path to a SharedDataSource definition, i.e. might contains path characters.
+            </summary>
+            <param name="sdsUri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WebReportDesigner.Services.Validation.ValidationExtensions.ValidateDefinition(System.String[],System.String)">
+            <summary>
+            Validates definition paths and its Id.
+            </summary>
+            <param name="definitionPathParts">the path segments that construct the path to the report definition.</param>
+            <param name="definitionId">The actual definition ID. (filename in FileDefinitionStorage implementation).</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

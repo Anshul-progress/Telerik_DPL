@@ -1,0 +1,362 @@
+@using DPL_project.DemoCertificate
+@model DPL_project.DemoCertificate.CertificateViewModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>signature-certificate-@Model.Document.Filename</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
+    @Model.SignatureCertificateCssTag
+</head>
+
+<body>
+    <div class="header">
+        <table style="width: 100%; border: none; border-collapse: collapse;">
+            <tr>
+                <td style="width: 60%; vertical-align: top; border: none; padding: 10px 0 20px 0;">
+                    <div id="logo">
+                        @Model.RightSignatureLogo
+                        <h1>SIGNATURE CERTIFICATE</h1>
+                    </div>
+                </td>
+                <td
+                    style="width: 40%; vertical-align: top; text-align: right; border: none; padding: 10px 10px 20px 0;">
+                    <table id="reference_number" style="border-collapse: collapse; margin-left: auto; margin-right: 0;">
+                        <tr>
+                            <td class="qr-content">
+                                @Model.DocumentQr
+                            </td>
+                            <td class="text-content">
+                                <h2>REFERENCE NUMBER</h2>
+                                <p>@Model.Document.Id.ToUpper()</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table class="details">
+        <thead>
+            <tr>
+                <td style="font-size: 13px; font-weight: bold; text-transform: uppercase;">TRANSACTION DETAILS</td>
+                <td style="font-size: 13px; font-weight: bold; text-transform: uppercase;">DOCUMENT DETAILS</td>
+            </tr>
+        </thead>
+        <tr class="section">
+            <td class="transaction-details">
+                <table class="inner-table">
+                    <tr>
+                        <td class="label">Reference Number</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.Id.ToUpper()</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Transaction Type</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.DocumentTransaction.Workflow.Name.Humanize().Titleize()</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Sent At</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@DateTimeFormatter.Timestamp(Model.Document.DocumentSentAt,
+                                                        Model.Document.User.DateFormat,
+                                                        Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Executed At</td>
+                    </tr>
+                    <tr>
+                        <td class="value">
+                            @if (Model.Document.DocumentExecutedAt != null)
+                            {
+                                @DateTimeFormatter.Timestamp(Model.Document.DocumentExecutedAt,
+                                Model.Document.User.DateFormat,
+                                                        Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)
+                                                        }
+                            else
+                            {
+                                @:N/A
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Identity Method</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.IdentityMethod</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Distribution Method</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.DistributionMethod</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Signed Checksum</td>
+                    </tr>
+                    <tr>
+                        <td class="value small-checksum"
+                            style="text-align: left; font-size: 9px; background-color: #f9f9f9; padding: 4px; font-family: Courier, sans-serif;">
+                            @Model.Document.DocumentSignedBaseFileChecksum ?? "N/A"</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Signer Sequencing</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@(Model.Document.SignerSequencing ? "Enabled" : "Disabled")</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Document Passcode</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@(Model.Document.Passcode ? "Enabled" : "Disabled")</td>
+                    </tr>
+                </table>
+            </td>
+            <td class="document-details">
+                <table class="inner-table">
+                    <tr>
+                        <td class="label">Document Name</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.Name.Sanitize()</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Filename</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.Upload.Filename</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Pages</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.RenderedMetadata.Pages</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Content Type</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.Document.Upload.BaseFile.ContentType</td>
+                    </tr>
+                    <tr>
+                        <td class="label">File Size</td>
+                    </tr>
+                    <tr>
+                        <td class="value">@Model.RenderedMetadata.FileSize</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Original Checksum</td>
+                    </tr>
+                    <tr>
+                        <td class="value small-checksum">@Model.Document.Upload.BaseFile.OriginalChecksum</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <h2 style="font-size: 21px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">SIGNERS</h2>
+    <table class="signers">
+        <thead>
+            <tr>
+                <td class="signer-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">SIGNER
+                </td>
+                <td class="esignature-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">
+                    E-SIGNATURE</td>
+                <td class="events-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">EVENTS
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var signer in Model.Document.Signers)
+            {
+                <tr>
+                    <td>
+                        <table class="inner-table">
+                            <tr>
+                                <td class="label">Name</td>
+                            </tr>
+                            <tr>
+                                <td class="value">@signer.Name.Sanitize()</td>
+                            </tr>
+                            @if (!string.IsNullOrEmpty(signer.Email))
+                            {
+                                <tr>
+                                    <td class="label">Email</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">@signer.Email</td>
+                                </tr>
+                            }
+                            @if (Model.Document.SignerSequencing)
+                            {
+                                <tr>
+                                    <td class="label">Signer Sequence</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">@signer.Sequence</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td class="label">Components</td>
+                            </tr>
+                            <tr>
+                                <td class="value">@signer.Components.Count</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="inner-table">
+                            <tr>
+                                <td class="label">Status</td>
+                            </tr>
+                            <tr>
+                                <td class="value">@signer.Status</td>
+                            </tr>
+                            @if (signer.Signed && signer.Response != null)
+                            {
+                                <tr>
+                                    <td class="label">Multi-factor Digital Fingerprint Checksum</td>
+                                </tr>
+                                <tr>
+                                    <td class="value small-checksum">@signer.Response.FingerprintChecksum</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">IP Address</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">@signer.Response.IpAddress</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Device</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">@signer.Response.Device</td>
+                                </tr>
+                                @foreach (var signature in signer.Response.Signatures)
+                                {
+                                    <tr>
+                                        <td class="label">@signature.SignatureType.Capitalize() Signature</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="value">
+                                            <table class="nested-signature">
+                                                <tr>
+                                                    <td colspan="2" style="text-align: center; padding: 5px;">
+                                                        <img class="signature" src="@signature.ImageUrl" alt="@signature.Id"
+                                                            width="100" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">Signature Reference ID</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="value">@signature.ReferenceId.ToUpper()</td>
+                                                </tr>
+                                                @if (signature.ParsedJsonData != null)
+                                                {
+                                                    <tr>
+                                                        <td class="label">Signature Biometric Count</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="value">@signature.ParsedJsonData.Count</td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </td>
+                    <td>
+                        <table class="inner-table">
+                            <tr>
+                                <td class="label">Viewed At</td>
+                            </tr>
+                            <tr>
+                                <td class="value">
+                                    @if (signer.ViewedAt != null)
+                                    {
+                                        @DateTimeFormatter.Timestamp(signer.ViewedAt, Model.Document.User.DateFormat,
+                                        Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)
+                                                                }
+                                    else
+                                    {
+                                        @:N/A
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Identity Authenticated At</td>
+                            </tr>
+                            <tr>
+                                <td class="value">
+                                    @if (signer.IdentityAuthenticatedAt != null)
+                                    {
+                                        @DateTimeFormatter.Timestamp(signer.IdentityAuthenticatedAt,
+                                        Model.Document.User.DateFormat,
+                                                                Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)
+                                                                }
+                                    else
+                                    {
+                                        @:N/A
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Signed At</td>
+                            </tr>
+                            <tr>
+                                <td class="value">
+                                    @if (signer.SignedAt != null)
+                                    {
+                                        @DateTimeFormatter.Timestamp(signer.SignedAt, Model.Document.User.DateFormat,
+                                        Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)
+                                                                }
+                                    else
+                                    {
+                                        @:N/A
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2 style="font-size: 21px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">AUDITS</h2>
+    <table class="audits">
+        <thead>
+            <tr>
+                <td class="timestamp-col" style="font-size: 13px; font-weight: bold; text-transform: uppercase;">
+                    TIMESTAMP</td>
+                <td style="font-size: 13px; font-weight: bold; text-transform: uppercase;">AUDIT</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var audit in Model.Document.PublicAudits)
+            {
+                <tr>
+                    <td>@DateTimeFormatter.Timestamp(audit.CreatedAt, Model.Document.User.DateFormat,
+                                            Model.Document.User.TimeFormat, Model.Document.User.TimeZone, true)</td>
+                <td class="payload">@audit.Payload</td>
+            </tr>
+                        }
+        </tbody>
+    </table>
+</body>
+
+</html>

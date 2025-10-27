@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Required for RazorLight runtime compilation to supply metadata references -->
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <!-- Not strictly required, but can help with discovering Razor related compile context -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+    <!-- Add local root as restore source so standalone nupkg at project root is discovered -->
+  <RestoreSources>https://api.nuget.org/v3/index.json;$(MSBuildThisFileDirectory);$(MSBuildThisFileDirectory)Telerik_Packages</RestoreSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Telerik.Documents.AIConnector" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.CMapUtils" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Core" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.DrawingML" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Fixed" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Fixed.FormatProviders.Image.Skia" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Fixed.FormatProviders.Ocr" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Flow" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Flow.FormatProviders.Doc" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Flow.FormatProviders.Pdf" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.ImageUtils" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Spreadsheet" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Spreadsheet.FormatProviders.OpenXml" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Spreadsheet.FormatProviders.Pdf" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.Spreadsheet.FormatProviders.Xls" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.SpreadsheetStreaming" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.TesseractOcr" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Documents.TextMeasurer.Skia" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Licensing" Version="1.6.21" />
+    <PackageReference Include="Telerik.Text.Skia" Version="2025.3.806" />
+    <PackageReference Include="Telerik.Zip" Version="2025.3.806" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.0" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+    <PackageReference Include="Aspose.PDF" Version="24.8.0" />
+    <PackageReference Include="Aspose.Words" Version="24.8.0" />
+    <PackageReference Include="RazorLight" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\*.ttf" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <!-- Ensure TestCases assets (including 30mb.pdf) are copied to output so benchmarks/imports use the real file -->
+  <ItemGroup>
+    <Content Include="TestCases/**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Copy Demo_certificate templates, css, logos to output so RazorLight can find them at runtime -->
+  <ItemGroup>
+    <Content Include="Demo_certificate/**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Reference Telerik Reporting assemblies from local folder -->
+  <ItemGroup>
+    <Reference Include="Telerik.Reporting">
+      <HintPath>Telerik_reporting_19/Bin/netstandard2.0/Telerik.Reporting.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Telerik.Drawing.Skia">
+      <HintPath>Telerik_reporting_19/Bin/net8.0/Telerik.Drawing.Skia.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Copy Telerik Reporting DLLs to output directory -->
+  <ItemGroup>
+    <Content Include="Telerik_reporting_19/Bin/netstandard2.0/Telerik.Reporting.dll" CopyToOutputDirectory="Always" />
+    <Content Include="Telerik_reporting_19/Bin/net8.0/Telerik.Drawing.Skia.dll" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+</Project>
