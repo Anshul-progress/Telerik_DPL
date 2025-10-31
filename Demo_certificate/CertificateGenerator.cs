@@ -1,10 +1,10 @@
-using System;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
+// using System;
+// using System.IO;
+// using System.Text;
+// using System.Threading.Tasks;
 using System.Net;
 using RazorLight;
-using DPL_project.DemoCertificate;
+//using DPL_project.DemoCertificate;
 using Telerik.Windows.Documents.Flow.FormatProviders.Html;
 using Telerik.Windows.Documents.Flow.FormatProviders.Pdf;
 using Telerik.Windows.Documents.Flow.Model;
@@ -53,26 +53,6 @@ namespace DPL_project.DemoCertificate
                 .UseFileSystemProject(templateDir)
                 .UseMemoryCachingProvider()
                 .Build();
-
-            // Load external CSS file if SignatureCertificateCssTag is empty
-            string cssPath = Path.Combine(templateDir, "certificate.css");
-            if (string.IsNullOrWhiteSpace(model.SignatureCertificateCssTag) && File.Exists(cssPath))
-            {
-                var css = File.ReadAllText(cssPath);
-                model.SignatureCertificateCssTag = "<style>" + css + "</style>";
-            }
-
-            // Inline company logo if it references relative SVG path
-            if (!string.IsNullOrEmpty(model.RightSignatureLogo) && model.RightSignatureLogo.Contains("ProgressShareFileLogoDark.svg", StringComparison.OrdinalIgnoreCase))
-            {
-                string logoPath = Path.Combine(templateDir, "Logo", "ProgressShareFileLogoDark.svg");
-                if (File.Exists(logoPath))
-                {
-                    var svg = File.ReadAllText(logoPath).Replace("\r", " ").Replace("\n", " ");
-                    string encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(svg));
-                    model.RightSignatureLogo = $"<img alt='Logo' width='200' src='data:image/svg+xml;base64,{encoded}' />";
-                }
-            }
 
             // Generate QR code and embed as base64
             string outDir = Path.Combine(templateDir, "Output"); // For PDF output in bin

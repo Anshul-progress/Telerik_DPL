@@ -6,8 +6,6 @@ namespace DPL_project.DemoCertificate
     public class CertificateViewModel
     {
         public CertificateDocumentViewModel Document { get; set; }
-        public string SignatureCertificateCssTag { get; set; } = string.Empty; // Will be populated from certificate.css if empty
-        public string RightSignatureLogo { get; set; } = "<img src='Logo/ProgressShareFileLogoDark.svg' alt='Logo' />";
         public string DocumentQr { get; set; } = string.Empty; // Placeholder; real QR generated if empty
         public RenderedMetadata RenderedMetadata { get; set; } = new RenderedMetadata { Pages = "3 pages", FileSize = "1 MB" };
 
