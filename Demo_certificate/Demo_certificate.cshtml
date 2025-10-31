@@ -10,7 +10,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/" />
-    @Model.SignatureCertificateCssTag
+    <style>
+        @{
+            var cssPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Demo_certificate", "certificate.css");
+            var css = System.IO.File.ReadAllText(cssPath);
+        }
+        @css
+    </style>
 </head>
 
 <body>
@@ -19,7 +25,15 @@
             <tr>
                 <td style="width: 60%; vertical-align: top; border: none; padding: 10px 0 20px 0;">
                     <div id="logo">
-                        @Model.RightSignatureLogo
+                        @{
+                            var logoPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Demo_certificate", "Logo", "ProgressShareFileLogoDark.svg");
+                            if (System.IO.File.Exists(logoPath))
+                            {
+                                var svg = System.IO.File.ReadAllText(logoPath).Replace("\r", " ").Replace("\n", " ");
+                                var encoded = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(svg));
+                                <img alt='Logo' width='200' src='data:image/svg+xml;base64,@encoded' />
+                            }
+                        }
                         <h1>SIGNATURE CERTIFICATE</h1>
                     </div>
                 </td>
